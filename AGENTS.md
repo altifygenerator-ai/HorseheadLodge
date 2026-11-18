@@ -29,3 +29,11 @@ This file governs all automated and human changes to the site.
 
 ## Essential visual continuity rule
 Horsehead is an existing venue, not a blank-slate luxury resort. Treat `BRAND-REFERENCE.md` as the governing design reference. Keep original navigation, full business name, photo-first wedding positioning, practical typography, light surfaces and minimal restrained accents. Do not use forest-green luxury editorial styling or numerical filler. Never claim exact brand colors until the original CSS is verified.
+
+## Preserve the live site's *actual interactions*
+- A still image is NOT an acceptable replacement for the original site's scroll-through/slideshow photography.
+- Preserve gallery browsing on the home page, wedding pages, and The Enclave with working manual navigation, and use subtle optional autoplay only where appropriate (hero).
+- All rotating images must be real business-owned/published photographs, not invented or generated stand-ins.
+- Never reduce multiple named, verified testimonials to a single unattributed sentence.
+- Sliders must support arrow buttons, touch swiping, keyboard operation, visible photo selection and reduced-motion settings.
+- Never tell the client the site is production-ready without verifying original media has been stored independently of the WordPress domain, inquiry/RSVP/video migration, responsive layouts, and a full Next production build.
