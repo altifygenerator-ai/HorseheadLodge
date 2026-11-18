@@ -35,3 +35,13 @@ npm run dev
 ```
 
 Do not enable `NEXT_PUBLIC_SITE_LIVE=true` or connect the production domain until the missing files, functionality, SEO migration, and full browser/build tests have been completed. The current staging configuration is noindex.
+
+
+## V4 photo experience restoration (November 18, 2026)
+- Auto-rotating homepage hero using the venue's already listed photographs; pauses on hover/focus, tab hide and reduced motion.
+- Manual ceremony/reception photo showcase with thumbnail navigation.
+- Separate wedding venue and Enclave slideshows, using five images referenced on the original Enclave page.
+- Interactive gallery with category filters, full-screen lightbox, keyboard arrows and Escape.
+- Original three named testimonials restored in a manual review carousel.
+- `npm run ui-audit`, `npm run audit` and `npm run smoke` verify code paths, 18 page renders, known booking links and slideshow safeguards. These are NOT production-browser assertions.
+- Full Next.js production compilation and rendered media cross-origin availability still need verification in the deployment environment. Remote WordPress images are still staging dependencies. The prelaunch check now enforces all 13 original media files.
