@@ -4,6 +4,7 @@ type Props={photo:PhotoKey;className?:string;loading?:'eager'|'lazy';sizes?:stri
 /** The source URL is for staging. First-party media must be synced before DNS cutover. */
 export function SitePhoto({photo,className='',loading='lazy',sizes}:Props){
   const item=PHOTOS[photo];
-  const src=process.env.NEXT_PUBLIC_LOCAL_MEDIA==='true' ? `/photos/${item.file}` : item.source;
+  const useLocalMedia = process.env.NEXT_PUBLIC_SITE_LIVE==='true' || process.env.NEXT_PUBLIC_LOCAL_MEDIA==='true';
+  const src=useLocalMedia ? `/photos/${item.file}` : item.source;
   return <div className={`site-photo ${className}`}><img src={src} alt={item.alt} loading={loading} sizes={sizes} /></div>;
 }
