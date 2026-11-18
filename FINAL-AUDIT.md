@@ -1,40 +1,37 @@
-# Design and implementation QA — November 18, 2026
+# Horsehead Lake Lodge — current verification, November 18, 2026
 
-## Verified here
+## What was actually checked
 
-- Read starter source and compared published venue pages and all linked Airbnb units.
-- Replaced the generic `01 / Weddings` numbered labels, boilerplate, empty room descriptions and visitor-visible implementation notes.
-- Verified `VenueX` destination and all **six distinct** Airbnb room IDs against the original website links.
-- Audited the event-availability subdomain separately from the WordPress events system.
-- Parsed **21 TS/TSX source files** with the TypeScript compiler: **0 syntax errors**.
-- Exercised the site's design and booking-link guard: **pass**.
-- Rendered **18 pages**, including six individual accommodations, with a Next-free JSX test harness: one H1 per page and **no dead internal links**.
-- Parsed CSS using a standards parser: **0 CSS parse errors**.
-- Loaded those 18 generated HTML pages in headless Chromium at **320, 375, 768, and 1280 pixels**: **no horizontal overflow, missing image alt attributes, or missing/duplicate H1 elements**. Native mobile menu toggled open successfully.
-- Checked the desktop/mobile visual composition with Chromium screenshots. Note: remote photos could not be loaded from this runtime, so the photo regions appear as neutral blocks in those screenshots.
-- No modifications made to the current domain, existing WordPress website, calendar, forms, Airbnb, or live booking accounts.
+- Confirmed the new GitHub repository `altifygenerator-ai/HorseheadLodge` was empty, then committed the Next.js starter and later corrections to `main`.
+- Reworked the V2 green/cream split-screen visual approach toward the current site's photo-led, wedding-first structure. Updated navigation, venue sections, gallery and the main page. The exact current WordPress palette remains unverified.
+- Changed color tokens and older green hard-coded CSS values to restrained neutrals. Updated the site design brief to REQUIRE visual continuity with the original.
+- Confirmed all 18 page components render through the JSX shim test and have one H1 and no dead *internal* links. `npm run smoke` passed.
+- `npm run audit` passed source checks for the external booking destinations, no template numbering, and staging robots.
+- `npm run prelaunch` found **0 of 9 original media files locally** and correctly reported that launch is blocked.
+- Removed staged same-domain links to the legacy WordPress video and RSVP pages, which would become self-links after a DNS switch. The actual video library and RSVP functionality remain to be migrated.
+- No changes to the existing WordPress domain, DNS, booking calendar, Airbnb, VenueX or event reservations.
 
-## Not yet verified — must not be described as passing
+## Not verified / open blockers
 
-- `npm run lint` and `npm run build` could not complete here because `next`, `react`, `@types/react`, and the project's other `node_modules` are not installed and the current container cannot access npm. TypeScript parsing and the JSX smoke harness do not prove a Next production build.
-- Original photo files could not be downloaded from this runtime. Staging currently references the original website media URLs. Download/approve copies from an internet-connected computer before switching DNS.
-- External availability, Airbnb checkout and VenueX interactive booking cannot be fully submitted safely or comprehensively tested through this code review.
-- No original video files, guest RSVP data, existing WordPress blog posts, or full old-event URL inventory have been migrated. Those are explicit go-live blockers.
-- No Search Console access or verified search ranking data was used; no SEO growth claims are made.
+- **The exact live WordPress styles, brand assets and photos were not available as downloadable files in this runtime.** Existing-site color matching is a conservative approximation, not a screenshot-exact match.
+- Chromium visual screenshot capture timed out in this sandbox. No new responsive browser screenshots or mobile overflow pass are claimed for V3.
+- Full Next.js `npm run lint` and `npm run build` could not run because local `node_modules` / Next / React types are not installed; TypeScript component smoke tests do not replace them.
+- All nine original photos need to be downloaded and visually verified. Do not switch DNS while their source URLs still resolve to the old WordPress installation. Run `npm run media:sync` from a machine with internet.
+- Original WordPress blog articles, indexed URLs and event pages still need migration/redirect mapping.
+- Original video files, guest RSVP form/data, and working event/contact inquiry forms have not been rebuilt and tested. These are release blockers.
+- Booking flows have links but have not been fully submitted or checkout-tested; do not claim end-to-end booking verification.
+- Vercel creation was attempted for `horsehead-lodge-staging` under `hometown-webs-projects`; the API returned **403 forbidden**. No Vercel staging project or deployment was created here.
 
-## Local final checks
+## Safe local checks
 
 ```powershell
 npm install
 npm run audit
 npm run smoke
+npm run prelaunch
 npm run lint
 npm run build
 npm run dev
 ```
 
-Test the full site on local and mobile browsers and confirm the 6 Airbnb links, the VenueX tour calendar, and event dates. Run `npm run media:sync` to copy the actual WordPress photos while the old website is still live.
-
-## Production safeguard
-
-`NEXT_PUBLIC_SITE_LIVE=false` keeps the rebuild noindex and disallowed in `robots.txt`. The `audit` script intentionally blocks setting it to `true` until remaining migration work is completed.
+Do not enable `NEXT_PUBLIC_SITE_LIVE=true` or connect the production domain until the missing files, functionality, SEO migration, and full browser/build tests have been completed. The current staging configuration is noindex.
