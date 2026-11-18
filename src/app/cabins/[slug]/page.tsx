@@ -1,0 +1,12 @@
+import type {Metadata} from 'next';
+import Link from 'next/link';
+import {notFound} from 'next/navigation';
+import {STAYS} from '@/lib/content';
+import {SitePhoto} from '@/components/SitePhoto';
+export function generateStaticParams(){return STAYS.map(s=>({slug:s.slug}))}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const stay=STAYS.find(s=>s.slug===slug);return stay?{title:`${stay.name} | Cabin Stay in Clarksville, AR`,description:stay.short,alternates:{canonical:`/cabins/${stay.slug}`}}:{}}
+export default async function CabinDetail({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const stay=STAYS.find(s=>s.slug===slug);if(!stay)notFound();const related=STAYS.filter(s=>s.slug!==stay.slug).slice(0,2);return <>
+<section className="cabin-hero content-width"><Link href="/cabins" className="back-link">← All accommodations</Link><p className="section-label">{stay.category}</p><h1>{stay.name}</h1><p className="cabin-subline">Sleeps up to {stay.guests} <span aria-hidden="true">·</span> {stay.bedrooms} bedroom{stay.bedrooms!==1?'s':''} <span aria-hidden="true">·</span> {stay.baths} bathroom{stay.baths!==1?'s':''}</p><SitePhoto photo={stay.photo} className="cabin-main-photo" loading="eager"/></section>
+<section className="content-width cabin-body section-spacing"><div><h2>{stay.short}</h2><p>{stay.description}</p>{stay.notes&&<aside className="important-note"><h3>Good to know before you book</h3><p>{stay.notes}</p></aside>}</div><aside className="cabin-booking"><p className="quiet-label">Availability & rates</p><h3>Book directly from the current listing.</h3><p>See open dates, the current nightly price and all house rules on Airbnb.</p><a className="button button-dark" href={stay.bookUrl} target="_blank" rel="noopener noreferrer">Check dates on Airbnb ↗</a><p className="booking-small">You’ll leave the lodge website to complete your reservation with Airbnb.</p></aside></section>
+<section className="content-width section-spacing cabin-features"><h2>What you'll find here</h2><ul>{stay.details.map(x=><li key={x}>{x}</li>)}</ul></section>
+<section className="pale-section section-spacing"><div className="content-width"><h2 className="max-heading">Other places to stay</h2><div className="other-stays">{related.map(s=><Link href={`/cabins/${s.slug}`} key={s.slug}><SitePhoto photo={s.photo}/><h3>{s.name}</h3><p>{s.short}</p><span>See accommodation →</span></Link>)}</div></div></section></>}

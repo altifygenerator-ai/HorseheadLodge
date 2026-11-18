@@ -1,0 +1,4 @@
+import type {Metadata} from 'next';
+import {PageIntro} from '@/components/Shared';
+export const metadata:Metadata={title:'Stories & Wedding Ideas from Horsehead Lake Lodge',description:'Real celebrations, wedding advice and planning stories from Horsehead Lake Lodge in Clarksville, Arkansas.',alternates:{canonical:'/blog'}};
+export default function Blog(){return <><PageIntro label="From the lodge" title="Stories worth sharing." lead="Real celebrations and practical wedding planning notes from Horsehead Lake Lodge."/><section className="content-width section-spacing simple-body"><h2>Celebrations at Horsehead.</h2><p>From wedding weekends to birthday parties, the lodge has hosted plenty of good stories. Read the venue's wedding tips and real-event stories in the existing collection.</p><a className="button button-outline" target="_blank" rel="noopener noreferrer" href="https://horseheadlakelodge.com/blog/">Browse the existing blog ↗</a></section></>}

@@ -1,0 +1,6 @@
+import type {Metadata} from 'next';
+import Link from 'next/link';
+import {PageIntro} from '@/components/Shared';
+import {SITE} from '@/lib/content';
+export const metadata:Metadata={title:'Guest Information & Wedding RSVP',description:'Practical information for wedding and event guests visiting Horsehead Lake Lodge near Clarksville, Arkansas.',alternates:{canonical:'/guest-information'}};
+export default function GuestInformation(){return <><PageIntro label="For guests" title="Coming to a wedding at Horsehead?" lead="Find the lodge, check with your hosts about timing and reach the current RSVP form."/><section className="content-width section-spacing simple-body"><h2>Before you arrive</h2><p>Horsehead Lake Lodge is at {SITE.address}. Check your event invitation for the arrival time, ceremony location, accommodations and any special instructions from your hosts.</p><p>Use the event code provided by your hosts to reply through the lodge’s RSVP form.</p><div className="actions"><a className="button button-dark" href="https://horseheadlakelodge.com/guest-information/" target="_blank" rel="noopener noreferrer">Current guest RSVP ↗</a><Link className="button button-outline" href="/contact">Contact the lodge</Link></div></section></>}

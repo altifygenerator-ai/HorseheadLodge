@@ -1,0 +1,5 @@
+import type {Metadata} from 'next';
+import {PageIntro} from '@/components/Shared';
+import {SITE} from '@/lib/content';
+export const metadata:Metadata={title:'Horsehead Lake Lodge Videos',description:'View video coverage and arrange a tour to see Horsehead Lake Lodge, its wedding spaces, and lakeside accommodations.',alternates:{canonical:'/video-gallery'}};
+export default function VideoGallery(){return <><PageIntro label="Video gallery" title="See how the spaces feel." lead="Take a closer look at the grounds, wedding spaces and accommodations before you visit."/><section className="content-width section-spacing simple-body"><h2>Take a look around.</h2><p>Watch videos of the property on the lodge’s current video gallery, or arrange a walk-through to see the space in person.</p><div className="actions"><a href="https://horseheadlakelodge.com/video-gallery/" target="_blank" rel="noopener noreferrer" className="button button-outline">View existing videos ↗</a><a href={SITE.tour} target="_blank" rel="noopener noreferrer" className="button button-dark">Schedule a tour ↗</a></div></section></>}
