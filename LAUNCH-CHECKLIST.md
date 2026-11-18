@@ -37,3 +37,7 @@ Status as of November 18, 2026: **staging-only; do not switch DNS.**
 - https://www.airbnb.com/rooms/907810186496081029
 - https://www.airbnb.com/rooms/23291812
 - https://www.airbnb.com/rooms/815701483202479525
+
+
+## Critical: current-domain links
+Do not add links on the new site to `https://horseheadlakelodge.com/video-gallery/` or `https://horseheadlakelodge.com/guest-information/` as supposed WordPress backups: after DNS cutover those URLs point back to the new app. Migrate the original video gallery and working RSVP workflow before launch.
