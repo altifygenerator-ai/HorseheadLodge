@@ -105,6 +105,10 @@ export const PHOTOS = {
   bridal: { file: 'bridal.jpg', source: 'https://horseheadlakelodge.com/wp-content/uploads/2024/01/Bridal-Suite-2-1024x683.jpg', alt: 'Bridal suite at Horsehead Lake Lodge' },
   enclave: { file: 'enclave.jpg', source: 'https://horseheadlakelodge.com/wp-content/uploads/2025/12/IMG_0695.jpg', alt: 'The Enclave event space overlooking Horsehead Lake' },
   walkway: { file: 'walkway.jpeg', source: 'https://horseheadlakelodge.com/wp-content/uploads/2024/01/IMG_6946-1024x768.jpeg', alt: 'Walkway at Horsehead Lake Lodge' },
+  enclaveRoom: { file: 'enclave-room.jpg', source: 'https://horseheadlakelodge.com/wp-content/uploads/2025/12/IMG_0696-scaled.jpg', alt: 'Interior view of The Enclave event space' },
+  enclaveView: { file: 'enclave-view.jpg', source: 'https://horseheadlakelodge.com/wp-content/uploads/2025/12/IMG_0699-scaled.jpg', alt: 'Another view of The Enclave at Horsehead Lake Lodge' },
+  enclaveSetting: { file: 'enclave-setting.jpg', source: 'https://horseheadlakelodge.com/wp-content/uploads/2025/12/IMG_0700-scaled.jpg', alt: 'The Enclave event area at Horsehead Lake Lodge' },
+  enclaveDetails: { file: 'enclave-details.jpg', source: 'https://horseheadlakelodge.com/wp-content/uploads/2025/12/IMG_0701-scaled.jpg', alt: 'The Enclave venue details at Horsehead Lake Lodge' },
 } as const;
 export type PhotoKey = keyof typeof PHOTOS;
 
