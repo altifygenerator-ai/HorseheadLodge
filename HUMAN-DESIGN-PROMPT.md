@@ -42,3 +42,7 @@ You are acting as a senior web designer, front-end developer and skeptical local
 Deliver finished source changes, a concise changelog, actual test results and any unverified launch dependencies. Never claim a pass when a test was not run.
 
 ---
+
+
+### Interactions are part of the design
+Do not replace the original business's sliding photos, guest review browsing, or event/booking links with static cards. The updated site should retain and improve recognizable interactions: large venue photography, gentle image changes, clear manual controls, touch navigation and galleries that can be enlarged. Focus animations on photos and affordances, not invented animated metrics, decorative numbering, or generic marketing widgets.
