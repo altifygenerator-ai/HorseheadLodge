@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { SITE } from '@/lib/content';
 import { SitePhoto } from '@/components/SitePhoto';
+import { PhotoCarousel } from '@/components/PhotoCarousel';
+import { ReviewCarousel } from '@/components/ReviewCarousel';
 import { TextLink, VisitCTA } from '@/components/Shared';
 
 export const metadata: Metadata = {
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return <>
     <section className="home-hero">
-      <div className="hero-photo-wrap"><SitePhoto photo="ceremony" className="hero-photo" loading="eager" /></div>
+      <div className="hero-photo-wrap"><PhotoCarousel hero autoPlay label="Views of the Horsehead Lake Lodge venue" className="hero-slideshow" slides={[{photo:"ceremony",caption:"Lakeside ceremony deck"},{photo:"reception",caption:"Reception hall"},{photo:"lake",caption:"Horsehead Lake"},{photo:"walkway",caption:"Connecting walkway"}]} /></div>
       <div className="hero-text">
         <p className="hero-overline">Clarksville, Arkansas</p>
         <h1>Horsehead Lake Lodge<br /><span>&amp; Event Center</span></h1>
@@ -46,13 +48,8 @@ export default function Home() {
     </section>
 
     <section className="venue-gallery section-spacing">
-      <div className="content-width"><div className="section-heading-row"><div><p className="section-label">Around the venue</p><h2>Take a look around.</h2></div><TextLink href="/gallery">View the full gallery</TextLink></div>
-        <div className="venue-gallery-grid">
-          <Link href="/gallery"><SitePhoto photo="ceremony" /><span>Ceremony deck</span></Link>
-          <Link href="/gallery"><SitePhoto photo="reception" /><span>Reception hall</span></Link>
-          <Link href="/gallery"><SitePhoto photo="walkway" /><span>Connecting walkway</span></Link>
-          <Link href="/gallery"><SitePhoto photo="lake" /><span>The lake and grounds</span></Link>
-        </div>
+      <div className="content-width"><div className="section-heading-row"><div><p className="section-label">The ceremony spaces</p><h2>See where the day unfolds.</h2><p>Take a closer look at the ceremony deck, reception hall, and lakeside setting.</p></div><TextLink href="/gallery">View all photographs</TextLink></div>
+        <PhotoCarousel label="Explore the ceremony and reception spaces" className="venue-showcase" showThumbnails slides={[{photo:"ceremony",caption:"Ceremony deck"},{photo:"reception",caption:"Reception hall"},{photo:"walkway",caption:"Connecting walkway"},{photo:"bridal",caption:"Bridal suite"},{photo:"lake",caption:"Horsehead Lake"}]} />
       </div>
     </section>
 
@@ -63,9 +60,9 @@ export default function Home() {
         <div className="home-stay-side"><Link href="/cabins/waterfall-cabin-1"><SitePhoto photo="waterfall" /><div><h3>Waterfall Cabins</h3><span>View cabins →</span></div></Link><Link href="/cabins/glamping-cabin-1"><SitePhoto photo="glamping" /><div><h3>Glamping Cabins</h3><span>View cabins →</span></div></Link></div>
       </div></div></section>
 
-    <section className="enclave-feature"><div className="content-width enclave-inner"><SitePhoto photo="enclave" className="enclave-photo"/><div><p className="section-label light-label">The Enclave</p><h2>A place for smaller celebrations.</h2><p>The Enclave is the lodge's separate event setting for gatherings of up to 50 guests. Explore the space, available options and current details.</p><TextLink href="/the-enclave">Explore The Enclave</TextLink></div></div></section>
+    <section className="enclave-feature"><div className="content-width enclave-inner"><PhotoCarousel className="enclave-photo" label="Photographs of The Enclave" slides={[{photo:"enclave",caption:"The Enclave"},{photo:"enclaveRoom",caption:"Inside The Enclave"},{photo:"enclaveView",caption:"Enclave views"},{photo:"enclaveSetting",caption:"Event setting"},{photo:"enclaveDetails",caption:"Venue details"}]} /><div><p className="section-label light-label">The Enclave</p><h2>A place for smaller celebrations.</h2><p>The Enclave is the lodge's separate event setting for gatherings of up to 50 guests. Explore the space, available options and current details.</p><TextLink href="/the-enclave">Explore The Enclave</TextLink></div></div></section>
 
-    <section className="review-section section-spacing"><div className="content-width"><p className="section-label">What guests are saying</p><blockquote>“The perfect setting for our daughter’s wedding!”</blockquote><p>— Traci Barton, guest review featured on the existing site</p><TextLink href="/contact">Get in touch</TextLink></div></section>
+    <section className="review-section section-spacing"><div className="content-width"><p className="section-label">What guests are saying</p><ReviewCarousel /></div></section>
     <VisitCTA />
   </>;
 }
