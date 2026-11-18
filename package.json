@@ -10,7 +10,8 @@
     "audit": "node scripts/audit.mjs",
     "media:sync": "node scripts/media-sync.mjs",
     "smoke": "node scripts/smoke.cjs",
-    "prelaunch": "node scripts/prelaunch-check.mjs"
+    "prelaunch": "node scripts/prelaunch-check.mjs",
+    "ui-audit": "node scripts/ui-audit.mjs"
   },
   "dependencies": {
     "next": "^15.5.0",
