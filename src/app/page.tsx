@@ -4,6 +4,7 @@ import { SITE } from '@/lib/content';
 import { SitePhoto } from '@/components/SitePhoto';
 import { PhotoCarousel } from '@/components/PhotoCarousel';
 import { ReviewCarousel } from '@/components/ReviewCarousel';
+import { VideoFeature } from '@/components/VideoFeature';
 import { TextLink, VisitCTA } from '@/components/Shared';
 
 export const metadata: Metadata = {
@@ -49,7 +50,7 @@ export default function Home() {
 
     <section className="venue-gallery section-spacing">
       <div className="content-width"><div className="section-heading-row"><div><p className="section-label">The ceremony spaces</p><h2>See where the day unfolds.</h2><p>Take a closer look at the ceremony deck, reception hall, and lakeside setting.</p></div><TextLink href="/gallery">View all photographs</TextLink></div>
-        <PhotoCarousel label="Explore the ceremony and reception spaces" className="venue-showcase" showThumbnails slides={[{photo:"ceremony",caption:"Ceremony deck"},{photo:"reception",caption:"Reception hall"},{photo:"walkway",caption:"Connecting walkway"},{photo:"bridal",caption:"Bridal suite"},{photo:"lake",caption:"Horsehead Lake"}]} />
+        <PhotoCarousel label="Explore the ceremony and reception spaces" className="venue-showcase" slides={[{photo:"ceremony",caption:"Ceremony deck"},{photo:"reception",caption:"Reception hall"},{photo:"walkway",caption:"Connecting walkway"},{photo:"bridal",caption:"Bridal suite"},{photo:"lake",caption:"Horsehead Lake"}]} />
       </div>
     </section>
 
@@ -61,6 +62,8 @@ export default function Home() {
       </div></div></section>
 
     <section className="enclave-feature"><div className="content-width enclave-inner"><PhotoCarousel className="enclave-photo" label="Photographs of The Enclave" slides={[{photo:"enclave",caption:"The Enclave"},{photo:"enclaveRoom",caption:"Inside The Enclave"},{photo:"enclaveView",caption:"Enclave views"},{photo:"enclaveSetting",caption:"Event setting"},{photo:"enclaveDetails",caption:"Venue details"}]} /><div><p className="section-label light-label">The Enclave</p><h2>A place for smaller celebrations.</h2><p>The Enclave is the lodge's separate event setting for gatherings of up to 50 guests. Explore the space, available options and current details.</p><TextLink href="/the-enclave">Explore The Enclave</TextLink></div></div></section>
+
+    <section className="home-film section-spacing"><div className="content-width home-film-grid"><div className="home-film-copy"><p className="section-label">A look at a real wedding</p><h2>More than a photograph.</h2><p>Watch an actual wedding filmed at Horsehead Lake Lodge, then explore the other spaces and accommodations around the lake.</p><TextLink href="/video-gallery">More video and venue views</TextLink></div><VideoFeature videoId="dcqyySknUgg" title="A wedding at Horsehead Lake Lodge" credit="Film by Wild Bloom Films" /></div></section>
 
     <section className="review-section section-spacing"><div className="content-width"><p className="section-label">What guests are saying</p><ReviewCarousel /></div></section>
     <VisitCTA />
