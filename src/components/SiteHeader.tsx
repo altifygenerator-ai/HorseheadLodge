@@ -4,7 +4,11 @@ const more = [
   {name:'Corporate',href:'/corporate-retreats'},
   {name:'Video gallery',href:'/video-gallery'},
   {name:'Excursions',href:'/things-to-do'},
+  {name:'Restaurants',href:'/things-to-do/restaurants'},
+  {name:'Wineries',href:'/things-to-do/wineries'},
+  {name:'Hiking & waterfalls',href:'/things-to-do/trails'},
   {name:'Guest information',href:'/guest-information'},
+  {name:'On-site amenities',href:'/amenities'},
   {name:'Blog',href:'/blog'},
 ];
 export function SiteHeader() {return <header className="site-header"><div className="header-inner">
