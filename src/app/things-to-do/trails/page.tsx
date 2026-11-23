@@ -1,0 +1,6 @@
+import type {Metadata} from 'next';
+import Link from 'next/link';
+import {SitePhoto} from '@/components/SitePhoto';
+import {PageIntro} from '@/components/Shared';
+export const metadata:Metadata={title:'Hiking, Waterfalls & Ozark Outdoors Near Horsehead Lake',description:'Explore Horsehead Creek, nearby Ozark National Forest recreation and hiking advice when staying at Horsehead Lake Lodge.',alternates:{canonical:'/things-to-do/trails'}};
+export default function Trails(){return <><PageIntro label="Hiking & waterfalls" title="An Ozark landscape to explore." lead="Enjoy the scenery around Horsehead Lake, with forest roads, hikes and waterfalls in the surrounding region." photo="waterfall"/><section className="content-width section-spacing editorial-split"><div><h2>Check conditions before you go.</h2><p>Rainfall changes the flow at the Horsehead Creek spillway. The Ozark National Forest has different trail conditions and seasonal access restrictions throughout the year.</p><p>Ask the lodge for local recommendations, bring suitable footwear, and check official land-manager notices for your intended route.</p><Link href="/things-to-do" className="text-link">Explore all excursions</Link></div><SitePhoto photo="lake" className="split-photo"/></section></>}
