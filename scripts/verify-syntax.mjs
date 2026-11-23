@@ -10,7 +10,7 @@ function visit(dir) {
   for(const entry of readdirSync(dir,{withFileTypes:true})) {
     const path=join(dir,entry.name);
     if(entry.isDirectory())visit(path);
-    else if(/\.(?:ts|tsx)$/.test(entry.name))files.push(path);
+    else if(entry.name.endsWith('.ts')||entry.name.endsWith('.tsx'))files.push(path);
   }
 }
 visit(join(root,'src'));
