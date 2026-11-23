@@ -11,7 +11,9 @@
     "media:sync": "node scripts/media-sync.mjs",
     "smoke": "node scripts/smoke.cjs",
     "prelaunch": "node scripts/prelaunch-check.mjs",
-    "ui-audit": "node scripts/ui-audit.mjs"
+    "ui-audit": "node scripts/ui-audit.mjs",
+    "concierge:check": "node scripts/concierge-check.mjs",
+    "concierge:triage": "node scripts/concierge-triage.mjs"
   },
   "dependencies": {
     "next": "^15.5.0",
