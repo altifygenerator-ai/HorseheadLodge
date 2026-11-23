@@ -10,7 +10,7 @@ type Props={slides:readonly PhotoSlide[];label:string;className?:string;autoPlay
 /** User-operated carousel with progressive enhancement: the first real photo is always rendered.
  * Autoplay is optional, pauses during user interaction and when the tab is hidden,
  * and never runs when the visitor requests reduced motion. */
-export function PhotoCarousel({slides,label,className='',autoPlay=false,intervalMs=7200,showThumbnails=false,hero=false}:Props){
+export function PhotoCarousel({slides,label,className='',autoPlay=true,intervalMs=6500,showThumbnails=false,hero=false}:Props){
   const [index,setIndex]=useState(0);
   const [paused,setPaused]=useState(false);
   const [reducedMotion,setReducedMotion]=useState(true);
