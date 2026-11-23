@@ -116,5 +116,6 @@ export const INTERNAL_PATHS = [
   '/', '/weddings', '/wedding-packages', '/the-enclave', '/cabins',
   ...STAYS.map(s => `/cabins/${s.slug}`), '/corporate-retreats',
   '/things-to-do', '/gallery', '/video-gallery', '/contact',
-  '/guest-information', '/blog',
+  '/guest-information', '/blog','/amenities',
+  '/things-to-do/restaurants','/things-to-do/wineries','/things-to-do/trails',
 ] as const;
