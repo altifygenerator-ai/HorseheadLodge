@@ -606,3 +606,49 @@ html{scroll-padding-top:110px}
 @media(prefers-reduced-motion:reduce){
  .cabin-spotlight-photo img,.stay-category-section .site-photo{transition:none!important}
 }
+
+
+/* Polished, forgiving dropdowns: visual transitions, predictable hover exit,
+   and keyboard-operable buttons instead of persistent native details. */
+.desktop-nav .nav-dropdown{position:relative;display:flex;align-items:center}
+.desktop-nav .nav-dropdown-trigger{
+ display:inline-flex;align-items:center;gap:8px;min-height:42px;
+ border:0;background:transparent;padding:0;cursor:pointer;
+ font:600 12px/1.4 Montserrat,Arial,sans-serif;letter-spacing:.005em;
+ white-space:nowrap;color:#292724;
+ transition:color .16s ease;
+}
+.desktop-nav .nav-dropdown-trigger:hover,
+.desktop-nav .nav-dropdown-trigger:focus-visible,
+.desktop-nav .nav-dropdown.is-open .nav-dropdown-trigger{color:#806048}
+.desktop-nav .nav-dropdown.is-open .nav-chevron{transform:rotate(225deg) translate(-1px,-1px)}
+.desktop-nav .nav-dropdown-panel{
+ top:100%;left:-22px;
+ opacity:0;visibility:hidden;pointer-events:none;
+ transform:translateY(-7px);
+ transition:opacity .18s ease,transform .18s ease,visibility 0s linear .18s;
+}
+.desktop-nav .nav-dropdown.is-open .nav-dropdown-panel{
+ opacity:1;visibility:visible;pointer-events:auto;
+ transform:translateY(0);
+ transition:opacity .18s ease,transform .18s ease,visibility 0s;
+}
+.desktop-nav .nav-dropdown-panel a:focus-visible{
+ outline:2px solid #8c694b;outline-offset:-3px;background:#f8f6f2;
+}
+@media(max-width:1320px){
+ .desktop-nav .nav-dropdown-trigger{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .desktop-nav .nav-dropdown-trigger,
+ .desktop-nav .nav-dropdown-panel,
+ .desktop-nav .nav-chevron{transition:none!important;transform:none!important}
+}
+
+/* Calm mobile-menu entry; closing and Escape remain immediate. */
+@keyframes horsehead-mobile-nav-enter{
+ from{opacity:0;transform:translateY(-9px)}
+ to{opacity:1;transform:translateY(0)}
+}
+.mobile-menu-panel{animation:horsehead-mobile-nav-enter .2s ease-out both}
+@media(prefers-reduced-motion:reduce){.mobile-menu-panel{animation:none}}
