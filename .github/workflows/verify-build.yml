@@ -27,11 +27,13 @@ jobs:
         run: npm run syntax
       - name: Type-check project
         run: npm run lint
-      - name: Validate routes and interactions
+      - name: Validate site routes and interactions
         run: |
           npm run audit
           npm run smoke
           npm run ui-audit
           npm run concierge:check
+      - name: Verify original photo library
+        run: npm run gallery:check
       - name: Build Next.js production output
         run: npm run build

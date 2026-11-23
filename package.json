@@ -14,7 +14,8 @@
     "prelaunch": "node scripts/prelaunch-check.mjs",
     "ui-audit": "node scripts/ui-audit.mjs",
     "concierge:check": "node scripts/concierge-check.mjs",
-    "concierge:triage": "node scripts/concierge-triage.mjs"
+    "concierge:triage": "node scripts/concierge-triage.mjs",
+    "gallery:check": "node scripts/verify-photo-library.mjs"
   },
   "dependencies": {
     "next": "^15.5.0",

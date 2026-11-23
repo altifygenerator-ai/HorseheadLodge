@@ -2,30 +2,37 @@ import {readFileSync,existsSync} from 'node:fs';
 import {join} from 'node:path';
 const root=process.cwd();
 const read=path=>readFileSync(join(root,path),'utf8');
+const home=read('src/app/page.tsx');
+const carousel=read('src/components/ExperienceCarousel.tsx');
+const gallery=read('src/components/ExperienceGallery.tsx');
 const checks=[
- ['Home has an automatically advancing real-photo hero',read('src/app/page.tsx').includes('<PhotoCarousel hero autoPlay')],
- ['Home retains a browsable venue slideshow',read('src/app/page.tsx').includes('venue-showcase')],
- ['Home retains rotating guest testimonials',read('src/app/page.tsx').includes('<ReviewCarousel')],
- ['Wedding page retains venue images',read('src/app/weddings/page.tsx').includes('wedding-slideshow')],
- ['Enclave uses its own original-site image series',read('src/app/the-enclave/page.tsx').includes('enclave-slideshow')],
- ['Gallery supports opening images',read('src/components/VenueGallery.tsx').includes('setActive(i)')],
- ['Gallery supports keyboard close',read('src/components/VenueGallery.tsx').includes("event.key==='Escape'")],
- ['Carousel has previous / next controls',read('src/components/PhotoCarousel.tsx').includes('Previous photograph')&&read('src/components/PhotoCarousel.tsx').includes('Next photograph')],
- ['Carousel has touch swipe',read('src/components/PhotoCarousel.tsx').includes('onTouchEnd')],
- ['Autoplay pauses in background',read('src/components/PhotoCarousel.tsx').includes('visibilitychange')],
- ['Reduced motion stops autoplay',read('src/components/PhotoCarousel.tsx').includes('prefers-reduced-motion')],
- ['Carousel styles support phones',read('src/app/style.css').includes('.hero-slideshow .photo-carousel')&&read('src/app/style.css').includes('@media(max-width:700px)')],
- ['The five Enclave originals are referenced',read('src/lib/content.ts').includes('IMG_0701-scaled.jpg')&&read('src/lib/content.ts').includes('IMG_0695.jpg')],
- ['Production media cutover gate scans all sources',read('scripts/prelaunch-check.mjs').includes('content.matchAll')],
- ['Default venue slides autoplay while retaining manual arrows',read('src/components/PhotoCarousel.tsx').includes('autoPlay=true,intervalMs=6500')&&read('src/components/PhotoCarousel.tsx').includes('Previous photograph')],
- ['Home has a real venue wedding-film component',read('src/app/page.tsx').includes('<VideoFeature videoId=')],
- ['Video page has a privacy-enhanced embed on activation',read('src/components/VideoFeature.tsx').includes('youtube-nocookie.com/embed/')],
- ['Original short wedding package rates carried forward',read('src/app/wedding-packages/page.tsx').includes('2,900')&&read('src/app/wedding-packages/page.tsx').includes('1,900')],
- ['Original area guide routes preserved by redirects',read('next.config.ts').includes("source:'/winery'")&&read('next.config.ts').includes("source:'/restaurant'")],
+ ['Home uses the original-photos automatically rotating hero',home.includes('<ExperienceCarousel hero')&&home.includes('featured.hero')],
+ ['Home retains browsable real-photo venue slideshow',home.includes('venue-showcase')&&home.includes('featured.ceremony')],
+ ['Home retains guest testimonials',home.includes('<ReviewCarousel')],
+ ['Wedding page uses the curated ceremony and reception sets',read('src/app/weddings/page.tsx').includes('featured.ceremony')&&read('src/app/weddings/page.tsx').includes('featured.reception')],
+ ['Enclave keeps its original-site photo series',read('src/app/the-enclave/page.tsx').includes('enclave-slideshow')],
+ ['New gallery opens larger images',gallery.includes('setActive(index)')],
+ ['Gallery uses category filters',gallery.includes('experienceCategories')&&gallery.includes('applyFilter')],
+ ['Gallery supports keyboard close',gallery.includes("e.key==='Escape'")],
+ ['Carousel has previous and next controls',carousel.includes('Previous image:')&&carousel.includes('Next image:')],
+ ['Carousel has touch-swipe interaction',carousel.includes('onTouchEnd')],
+ ['Carousel autoplay pauses when page is hidden',carousel.includes('visibilitychange')],
+ ['Carousel disables autoplay for reduced motion',carousel.includes('prefers-reduced-motion')],
+ ['Carousel styles adapt to small screens',read('src/app/style.css').includes('.experience-carousel-hero')&&read('src/app/style.css').includes('@media(max-width:600px)')],
+ ['Five Enclave originals remain referenced',read('src/lib/content.ts').includes('IMG_0701-scaled.jpg')&&read('src/lib/content.ts').includes('IMG_0695.jpg')],
+ ['Existing media cutover check retained',read('scripts/prelaunch-check.mjs').includes('content.matchAll')],
+ ['Venue photo carousel retains manual controls and autoplay',read('src/components/PhotoCarousel.tsx').includes('autoPlay=true,intervalMs=6500')&&read('src/components/PhotoCarousel.tsx').includes('Previous photograph')],
+ ['The original home wedding film remains',home.includes('<VideoFeature videoId=')],
+ ['YouTube embeds load after deliberate interaction',read('src/components/VideoFeature.tsx').includes('youtube-nocookie.com/embed/')],
+ ['Additional verified venue films are credited',read('src/app/video-gallery/page.tsx').includes('Wild Bloom Films')&&read('src/app/video-gallery/page.tsx').includes('Hunt Films')],
+ ['No unverified 360 URL is invented',read('docs/VIDEO-AND-360-RECOVERY.md').includes('not recoverable')],
+ ['Original shorter wedding package rates remain',read('src/app/wedding-packages/page.tsx').includes('2,900')&&read('src/app/wedding-packages/page.tsx').includes('1,900')],
+ ['Older guide redirects remain in place',read('next.config.ts').includes("source:'/winery'")&&read('next.config.ts').includes("source:'/restaurant'")],
  ['Concierge cannot automatically email',read('scripts/concierge-triage.mjs').includes('autoSend:false')],
- ['Site stays noindex in staging',read('src/app/layout.tsx').includes('index:isLive')],
+ ['Staging remains noindex',read('src/app/layout.tsx').includes('index:isLive')],
+ ['First-party venue photo files exist',existsSync(join(root,'public/photos/experience/img-1435.webp'))],
 ];
 let failed=0;
 for(const [name,okay] of checks){console.log(`${okay?'PASS':'FAIL'} ${name}`);if(!okay)failed++}
-if(failed){console.error(`${failed} user interface safeguard(s) failed`);process.exitCode=1}
-else console.log(`PASS: ${checks.length} design/interaction regression checks.`)
+if(failed){console.error(`${failed} UI safeguard(s) failed`);process.exitCode=1}
+else console.log(`PASS: ${checks.length} design and interaction regression checks.`);

@@ -202,3 +202,125 @@ h1{font-size:clamp(2.8rem,5vw,4.6rem)} h2{font-size:clamp(2rem,3.5vw,3.3rem)} h3
 .excursion-directory article h2{font-size:clamp(24px,3vw,35px)}.directory-note{max-width:520px}
 @media(max-width:900px){.home-film-grid,.video-gallery-layout{grid-template-columns:1fr;gap:30px}.home-film-copy,.video-gallery-layout>div:first-child{max-width:730px}}
 @media(max-width:700px){.shorter-packages,.excursion-links,.excursion-directory,.corporate-packages{grid-template-columns:1fr;gap:20px}.shorter-options>div{align-items:flex-start;flex-wrap:wrap}.video-feature-play{width:60px;height:48px}}
+
+/* Horsehead's photo-led experience, built around actual owner-supplied photography.
+   Quiet neutral styling respects the previous wedding-venue identity, rather than
+   applying gradients, oversized badges or a generic luxury-resort template. */
+.experience-image{position:relative;overflow:hidden;background:#d6d0ca;min-height:240px}
+.experience-image img{object-fit:cover;object-position:center}
+.experience-carousel{position:relative;min-height:380px;height:100%;background:#211d19;isolation:isolate}
+.experience-carousel-stage{position:absolute;inset:0;overflow:hidden}
+.experience-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .85s ease,visibility .85s ease;pointer-events:none}
+.experience-slide.is-active{opacity:1;visibility:visible;pointer-events:auto;z-index:1}
+.experience-slide img{object-fit:cover;object-position:center 52%}
+.experience-carousel-navigation{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(10px,2.2vw,28px);pointer-events:none}
+.experience-carousel-navigation button{pointer-events:auto;display:grid;place-items:center;width:46px;height:46px;background:rgba(24,21,18,.43);border:1px solid rgba(255,255,255,.65);color:#fff;font:400 36px/1 Georgia,serif;cursor:pointer;transition:background .2s ease}
+.experience-carousel-navigation button:hover{background:rgba(24,21,18,.90)}
+.experience-carousel-caption{position:absolute;z-index:3;bottom:0;left:0;right:0;min-height:74px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:24px 24px 17px;color:#fff;background:linear-gradient(0deg,rgba(16,14,12,.72),transparent);font-size:13px;font-weight:600}
+.experience-carousel-progress{display:flex;align-items:center;flex-wrap:wrap;gap:5px;max-width:48%;justify-content:flex-end}
+.experience-carousel-progress button{width:15px;height:3px;border:0;padding:0;background:#ffffff85;cursor:pointer}
+.experience-carousel-progress button.is-active{background:#fff;width:23px}
+.experience-carousel :focus-visible,.experience-gallery :focus-visible{outline:3px solid #b58c65;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.experience-slide{transition:none}}
+/* Homepage hero retains original copy and arrows; the lake and venue photography does the work. */
+.home-hero .experience-carousel.hero-slideshow{position:absolute;inset:0;height:100%;min-height:0}
+.home-hero .experience-carousel-hero .experience-carousel-navigation{align-items:flex-end;justify-content:flex-end;gap:10px;padding:0 34px 28px}
+.home-hero .experience-carousel-hero .experience-carousel-navigation button{width:42px;height:42px}
+.feature-block .experience-image.feature-photo{height:600px}
+.venue-showcase.experience-carousel{height:570px;margin-top:28px}
+.wedding-slideshow.experience-carousel{height:545px}
+.wedding-lake-photos .experience-carousel{height:450px}
+.horsehead-experience-story{display:grid;grid-template-columns:1.05fr .95fr;min-height:570px;max-width:1500px;margin:0 auto;background:#f5f3ef}
+.horsehead-experience-story-photo{min-height:550px}
+.horsehead-experience-story-photo .experience-image{height:100%;width:100%}
+.horsehead-experience-story-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(34px,6vw,110px)}
+.horsehead-experience-story-copy h2{font-size:clamp(2rem,3.2vw,3.6rem);max-width:540px}
+.horsehead-experience-story-copy p:not(.section-label){max-width:540px;color:#5c5854}
+.cabin-experience-photo{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,6vw,84px);align-items:center}
+.cabin-experience-photo>.experience-image{min-height:400px}
+.cabin-experience-photo>div:last-child{max-width:470px}
+.cabin-experience-photo>div:last-child p{color:#5c5854}
+/* Gallery: quiet filters, deliberately varied photograph crops, real captions, no filler cards. */
+.experience-gallery-header{background:#f7f6f4;padding:84px 0 72px}
+.experience-gallery-header .content-width{max-width:1150px}
+.experience-gallery-header h1{max-width:860px;font-size:clamp(2.8rem,5vw,5rem);margin-bottom:18px}
+.experience-gallery-header p:not(.section-label){max-width:690px;color:#595550;font-size:clamp(16px,1.6vw,19px);line-height:1.7}
+.gallery-leading{height:min(66vw,620px);min-height:340px;max-width:1600px;margin:0 auto}
+.gallery-leading .experience-carousel{height:100%;min-height:0}
+.experience-gallery-section{padding-block:95px 105px}
+.experience-gallery-title{display:grid;grid-template-columns:1.2fr .8fr;align-items:end;gap:32px;margin-bottom:35px}
+.experience-gallery-title h2{max-width:720px;font-size:clamp(2rem,3.6vw,3.7rem)}
+.experience-gallery-title>p{max-width:430px;color:#625d57;margin:0}
+.experience-gallery-tabs{display:flex;flex-wrap:wrap;align-items:center;gap:9px 21px;border-bottom:1px solid #e5e1db;margin-bottom:28px}
+.experience-gallery-tabs button{font:600 12px Montserrat,Arial,sans-serif;cursor:pointer;white-space:nowrap;color:#5c5650;background:transparent;border:0;border-bottom:2px solid transparent;padding:12px 1px 15px}
+.experience-gallery-tabs button.is-active{color:#23211f;border-bottom-color:#5a4837}
+.experience-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.experience-gallery-tile{border:0;background:transparent;cursor:zoom-in;display:block;min-width:0;position:relative;text-align:left;padding:0;align-self:start}
+.experience-gallery-tile.is-wide{grid-column:span 2}
+.experience-gallery-photo{display:block;position:relative;width:100%;height:290px;overflow:hidden;background:#e5e1da}
+.experience-gallery-tile.is-wide .experience-gallery-photo{height:425px}
+.experience-gallery-photo img{object-fit:cover;transition:transform .5s ease}
+.experience-gallery-tile:hover .experience-gallery-photo img{transform:scale(1.026)}
+.experience-gallery-tile-label{display:block;padding:10px 1px 16px;color:#645e59;font:500 12px/1.5 Montserrat,Arial,sans-serif}
+.experience-gallery-more{text-align:center;padding-top:35px}
+.experience-gallery-closing{background:#f5f3f0;padding:92px 0}
+.experience-gallery-closing h2{max-width:750px;font-size:clamp(2rem,3.8vw,3.7rem)}
+.experience-gallery-closing p{max-width:690px;color:#5f5955}
+.experience-lightbox-backdrop{position:fixed;inset:0;background:rgba(13,12,11,.96);z-index:10000;padding:clamp(8px,2.5vw,28px);display:grid;place-items:center}
+.experience-lightbox{width:min(100%,1450px);height:min(100%,960px);display:flex;flex-direction:column;min-height:0;position:relative;color:#fff}
+.experience-lightbox-close{position:absolute;z-index:5;right:4px;top:4px;width:44px;height:44px;border:1px solid #ffffff66;background:#171513dd;color:#fff;font:32px/1 Georgia,serif;cursor:pointer}
+.experience-lightbox-image{position:relative;flex:1;min-height:0}
+.experience-lightbox-image img{object-fit:contain}
+.experience-lightbox-controls{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:80px}
+.experience-lightbox-controls button{width:46px;height:46px;border:1px solid #ffffff88;background:transparent;color:#fff;font:34px Georgia,serif;cursor:pointer}
+.experience-lightbox-controls>div{display:flex;flex-direction:column;text-align:center;gap:4px;font-size:13px}
+.experience-lightbox-controls span{font-size:11px;color:#c7c0ba}
+@media(max-width:900px){
+ .horsehead-experience-story{grid-template-columns:1fr;min-height:0}
+ .horsehead-experience-story-photo{min-height:380px;height:55vw}
+ .horsehead-experience-story-copy{padding:55px 32px 65px}
+ .experience-gallery-title{grid-template-columns:1fr}
+ .cabin-experience-photo{grid-template-columns:1fr}
+ .experience-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .experience-gallery-tile.is-wide .experience-gallery-photo{height:350px}
+ .feature-block .experience-image.feature-photo{height:470px}
+}
+@media(max-width:600px){
+ .experience-gallery-header{padding:65px 0 55px}
+ .gallery-leading{height:350px;min-height:0}
+ .experience-gallery-section{padding-block:60px}
+ .experience-gallery-tabs{gap:5px 15px}
+ .experience-gallery-tabs button{font-size:11px;white-space:normal;text-align:left}
+ .experience-gallery-grid{gap:10px}
+ .experience-gallery-photo{height:185px}
+ .experience-gallery-tile.is-wide .experience-gallery-photo{height:255px}
+ .experience-gallery-tile-label{font-size:10px;padding-block:8px 14px}
+ .experience-gallery-title h2{font-size:2.1rem}
+ .horsehead-experience-story-photo{height:380px}
+ .horsehead-experience-story-copy{padding:45px 22px 60px}
+ .home-hero .experience-carousel-hero .experience-carousel-navigation{padding:0 18px 22px}
+ .venue-showcase.experience-carousel{height:390px}
+ .experience-carousel-caption{padding:24px 12px 13px;font-size:11px;gap:8px}
+ .experience-carousel-navigation{padding-inline:9px}
+ .experience-carousel-navigation button{width:38px;height:38px}
+ .experience-carousel-progress{max-width:40%}
+ .experience-carousel-progress button{width:10px}
+ .cabin-experience-photo>.experience-image{min-height:320px}
+ .experience-lightbox-controls{gap:8px}
+ .experience-lightbox-controls>div{font-size:11px}
+}
+/* Independent venue films: creator credited, user-initiated embeds. */
+.video-collection .video-collection-feature{display:grid;grid-template-columns:.65fr 1.35fr;gap:clamp(28px,5vw,80px);align-items:center}
+.video-collection-feature>div:first-child>p:not(.section-label){color:#645e59}
+.video-collection-secondary{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:48px}
+.video-collection-secondary .video-feature{min-width:0}
+.video-feature-link{margin-top:34px;border-top:1px solid #e9e5df;padding-top:25px;color:#5b5550;font-size:14px}
+.video-feature-link a{text-decoration:underline;text-underline-offset:3px}
+.video-visit-band{display:grid;grid-template-columns:1.1fr .9fr;background:#f5f3ef;max-width:1500px;margin:auto}
+.video-visit-band>.experience-image{min-height:500px}
+.video-visit-band>div:last-child{display:flex;align-items:flex-start;flex-direction:column;justify-content:center;padding:clamp(34px,5vw,85px)}
+.video-visit-band>div:last-child h2{max-width:600px}
+.video-visit-band>div:last-child p:not(.section-label){max-width:570px;color:#5c5854}
+.video-visit-band>div:last-child .text-link{margin-top:25px}
+@media(max-width:900px){.video-collection .video-collection-feature,.video-visit-band{grid-template-columns:1fr}.video-visit-band>.experience-image{min-height:330px}}
+@media(max-width:600px){.video-collection-secondary{grid-template-columns:1fr;margin-top:24px}.video-visit-band>div:last-child{padding:50px 22px 65px}}

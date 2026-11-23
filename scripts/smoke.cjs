@@ -14,7 +14,8 @@ const h=(type,props)=>({type,props:props||{}});
 Module._resolveFilename=function(request,parent,...rest){if(request.startsWith('@/'))return originalResolve.call(this,path.join(root,'src',request.slice(2)),parent,...rest);return originalResolve.call(this,request,parent,...rest)};
 Module._load=function(request,parent,...rest){
  if(request==='react/jsx-runtime')return {jsx:h,jsxs:h,Fragment};
- if(request==='react')return {useState:(initial)=>[initial,()=>{}],useId:()=> 'smoke-carousel',useRef:(initial)=>({current:initial}),useEffect:()=>{},useCallback:(cb)=>cb};
+ if(request==='react')return {useState:(initial)=>[initial,()=>{}],useId:()=> 'smoke-carousel',useRef:(initial)=>({current:initial}),useEffect:()=>{},useCallback:(cb)=>cb,useMemo:(cb)=>cb()};
+ if(request==='next/image')return {__esModule:true,default:({src,alt,...props})=>h('img',{src,alt,...props})};
  if(request==='next/link')return {__esModule:true,default:({href,children,...props})=>h('a',{href,children,...props})};
  if(request==='next/navigation')return {notFound(){throw new Error('notFound')}};
  if(request.endsWith('.css'))return {};
