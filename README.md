@@ -63,3 +63,19 @@ The homepage now has an automatic but pausable photograph carousel, a manual ven
 Run `npm run ui-audit` alongside `npm run audit`, `npm run smoke`, and `npm run build`. The first three are code/route checks; they do not replace a full dependency-backed build or a real browser test.
 
 The Enclave photo URLs come from the live Enclave page. Before connecting the production domain, run `npm run media:sync` and verify that all **13** image files exist under `public/photos/`; otherwise same-domain WordPress image requests will break on cutover.
+
+## November 2026 original-site parity expansion
+
+The original site's marketing-area photo sliders **rotate automatically and have previous/next arrows**. The latest update restores both behaviors; the lightbox is a separate gallery interaction. It adds a click-to-load video player for a publicly available film recorded at the venue, the shorter wedding/corporate package choices, and separate dining, winery, hiking and amenities guides. This wedding film was published by Wild Bloom Films. The **exact original WordPress YouTube embeds and 360-degree tours are not yet recovered**.
+
+Review `docs/ORIGINAL-SITE-PARITY.md` for the original-to-new inventory and open launch blockers. This is a staged expansion, not a complete migration.
+
+## Existing email agent
+
+Do not interrupt Scott's existing connected agent. The repository contains a **non-sending** sample inquiry triage (`scripts/concierge-triage.mjs`), a business-fact file (`knowledge/venue-facts.json`), and a proposed approval-first architecture (`docs/EMAIL-CONCIERGE-ARCHITECTURE.md`).
+
+Run `npm run concierge:check` to validate sample classifications or `npm run concierge:triage -- "Can we book next Saturday?"` to see a sample draft. These commands **never send mail** or contact a provider. Live wiring requires Scott's authorization and the current email system details.
+
+## Verification
+
+Run `npm run audit`, `npm run smoke`, `npm run ui-audit`, `npm run concierge:check`, `npm run lint` and `npm run build`. The last two require dependencies installed locally. A smoke-rendering shim cannot replace a full production build or responsive browser test.
