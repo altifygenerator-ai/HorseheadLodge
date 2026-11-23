@@ -17,7 +17,7 @@ check((contents.match(/file: '/g)||[]).length>=8,'Expected original venue photo 
 check(!/\b0[1-9]\s*[\/|·-]\s*(Weddings|Cabins|Stays|Celebrate|Services)/i.test(source),'Decorative numbered section labels detected');
 const rendered=files.filter(p=>p.endsWith('.tsx')).map(p=>readFileSync(p,'utf8')).join('\n');
 for(const phrase of ['lorem ipsum','elevate your','unforgettable experience','memories are made','luxury meets nature','migration pending','verify before launch','preview only','photo pending','placeholder'])check(!rendered.toLowerCase().includes(phrase),`Rendered code contains prohibited filler or developer copy: ${phrase}`);
-const needed=['weddings','wedding-packages','the-enclave','cabins','cabins/[slug]','corporate-retreats','things-to-do','gallery','video-gallery','guest-information','contact','blog'];
+const needed=['weddings','wedding-packages','the-enclave','cabins','cabins/[slug]','corporate-retreats','things-to-do','gallery','video-gallery','guest-information','contact','blog','amenities','things-to-do/restaurants','things-to-do/wineries','things-to-do/trails'];
 for(const route of needed)check(existsSync(join(src,'app',route,'page.tsx')),`Missing route /${route}`);
 const oldCatchAll=join(src,'app','[...slug]','page.tsx');
 if(existsSync(oldCatchAll)){const text=readFileSync(oldCatchAll,'utf8');check(text.includes('notFound()')&&!text.includes('getPage'),'Old catch-all route must be replaced with a safe 404 fallback');}
