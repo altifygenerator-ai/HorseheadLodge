@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "lastPublicReview": "2026-11-22",
+  "ownerApproval": "pending",
+  "facts": [
+    {"id":"venue.name","value":"Horsehead Lake Lodge & Event Center","source":"https://horseheadlakelodge.com/","status":"public-source-verified","approvedForEmail":false},
+    {"id":"venue.location","value":"213 County Road 3190, Clarksville, AR 72830","source":"https://horseheadlakelodge.com/contact-us/","status":"public-source-verified","approvedForEmail":false},
+    {"id":"venue.contact","value":"scott@horseheadlakelodge.com","source":"https://horseheadlakelodge.com/contact-us/","status":"public-source-verified","approvedForEmail":false},
+    {"id":"venue.tour","value":"https://app.venuexai.com/book-appointment/HF37r4yoWYHWbzUZbCHB?extended=false","source":"https://horseheadlakelodge.com/","status":"public-source-verified","approvedForEmail":false},
+    {"id":"venue.event-calendar","value":"https://availabledates.horseheadlakelodge.com/","source":"https://horseheadlakelodge.com/","status":"public-source-verified","approvedForEmail":false},
+    {"id":"venue.weekend-starting","value":"$9,900","source":"https://horseheadlakelodge.com/wedding/","status":"needs-owner-reconfirmation","approvedForEmail":false},
+    {"id":"venue.weekday-starting","value":"$6,900","source":"https://horseheadlakelodge.com/wedding/","status":"needs-owner-reconfirmation","approvedForEmail":false},
+    {"id":"venue.enclave-capacity","value":"Up to 50 guests","source":"https://horseheadlakelodge.com/the-enclave/","status":"needs-owner-reconfirmation","approvedForEmail":false}
+  ]
+}
