@@ -9,6 +9,7 @@ const nextConfig:NextConfig={
     {source:'/winery',destination:'/things-to-do/wineries',permanent:true},
     {source:'/hiking-trails-waterfalls',destination:'/things-to-do/trails',permanent:true},
     {source:'/services',destination:'/amenities',permanent:true},
+    {source:'/excursions',destination:'/things-to-do',permanent:true},
     // Do NOT redirect /events, /event/*, /blog/*, /gallery or old guest RSVP paths blindly.
   ];},
 };

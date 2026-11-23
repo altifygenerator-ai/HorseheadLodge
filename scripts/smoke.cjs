@@ -17,7 +17,7 @@ Module._load=function(request,parent,...rest){
  if(request==='react')return {useState:(initial)=>[initial,()=>{}],useId:()=> 'smoke-carousel',useRef:(initial)=>({current:initial}),useEffect:()=>{},useCallback:(cb)=>cb,useMemo:(cb)=>cb()};
  if(request==='next/image')return {__esModule:true,default:({src,alt,...props})=>h('img',{src,alt,...props})};
  if(request==='next/link')return {__esModule:true,default:({href,children,...props})=>h('a',{href,children,...props})};
- if(request==='next/navigation')return {notFound(){throw new Error('notFound')}};
+ if(request==='next/navigation')return {usePathname:()=> '/',notFound(){throw new Error('notFound')}};
  if(request.endsWith('.css'))return {};
  return originalLoad.call(this,request,parent,...rest);
 };
@@ -39,7 +39,7 @@ function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':
 (async()=>{
  const home=require('../src/app/page.tsx');
  const layout=require('../src/app/layout.tsx');
- const staticRoutes=['weddings','wedding-packages','the-enclave','cabins','corporate-retreats','things-to-do','gallery','video-gallery','guest-information','contact','blog','amenities','things-to-do/restaurants','things-to-do/wineries','things-to-do/trails'];
+ const staticRoutes=['weddings','wedding-packages','the-enclave','cabins','corporate-retreats','things-to-do','gallery','video-gallery','guest-information','contact','blog','amenities','cabins/waterfall-cabins','cabins/glamping-cabins','things-to-do/restaurants','things-to-do/wineries','things-to-do/trails'];
  const routes=[['/',home.default]];
  for(const slug of staticRoutes)routes.push([`/${slug}`,require(`../src/app/${slug}/page.tsx`).default]);
  const dynamic=require('../src/app/cabins/[slug]/page.tsx');

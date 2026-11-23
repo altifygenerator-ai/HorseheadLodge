@@ -1,0 +1,15 @@
+import type {Metadata} from 'next';
+import Link from 'next/link';
+import {STAYS} from '@/lib/content';
+import {SitePhoto} from '@/components/SitePhoto';
+import {ExperienceCarousel} from '@/components/ExperienceCarousel';
+import {featured} from '@/lib/experience';
+import {StayCard} from '@/components/Shared';
+export const metadata:Metadata={title:'Lakeside Glamping Cabins | Horsehead Lake Lodge, Arkansas',description:'Explore two heated and cooled glamping cabin stays at Horsehead Lake Lodge, including outdoor kitchens, fire pits and important steep-road arrival information.',alternates:{canonical:'/cabins/glamping-cabins'}};
+const stays=STAYS.filter(s=>s.category==='Glamping cabins');
+export default function GlampingCabins(){return <>
+ <section className="stay-hub-hero"><div className="content-width stay-hub-grid"><div><Link className="back-link" href="/cabins">← All accommodations</Link><p className="section-label">Two stays by the lake</p><h1>Glamping beneath the trees.</h1><p>Sleep in a heated and cooled cabin, cook on the covered porch, and spend the rest of your time close to the water. Both stays have their own Airbnb listing and arrival instructions.</p><a className="button button-dark" href="#compare">Compare the cabins</a></div><SitePhoto photo="glamping" className="stay-hub-photo" loading="eager"/></div></section>
+ <section className="content-width section-spacing stay-hub-details"><div><p className="section-label">The setting</p><h2>Less packing. More time outside.</h2><p>The glamping cabins have sleeping rooms with two queen beds, outdoor cooking spaces and fire pits. The dock and lake are nearby. They are individual accommodations, so check each listing’s photos and details.</p></div><aside className="stay-hub-facts"><h3>About the road</h3><p>The road down to the glamping cabins is steep. The listings recommend an all-wheel-drive or four-wheel-drive vehicle. Guests should check the latest arrival instructions before traveling; Cabin Two’s listing also describes the option to park above and walk down.</p></aside></section>
+ <section className="stay-category-section section-spacing" id="compare"><div className="content-width"><div className="stay-category-intro"><div><p className="section-label">Find your cabin</p><h2>Two ways to stay close to the lake.</h2></div><p>Use the individual listing to confirm availability, current amenities and the vehicle requirements for your stay.</p></div><div className="stay-page-grid stay-page-grid-two">{stays.map(s=><StayCard key={s.slug} stay={s}/>)}</div></div></section>
+ <section className="content-width section-spacing guide-editorial"><ExperienceCarousel ids={featured.stay} label="Horsehead Lake Lodge waterside grounds" className="guide-editorial-carousel"/><div className="guide-editorial-copy"><p className="section-label">While you are here</p><h2>The lake is the reason to slow down.</h2><p>Bring time for the dock and the water, or plan a full day exploring the Ozarks and Arkansas River Valley.</p><Link className="text-link" href="/things-to-do">Explore the area</Link></div></section>
+ </>}

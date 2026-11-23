@@ -30,6 +30,11 @@ const checks=[
  ['Older guide redirects remain in place',read('next.config.ts').includes("source:'/winery'")&&read('next.config.ts').includes("source:'/restaurant'")],
  ['Concierge cannot automatically email',read('scripts/concierge-triage.mjs').includes('autoSend:false')],
  ['Staging remains noindex',read('src/app/layout.tsx').includes('index:isLive')],
+ ['Navigation exposes winery, cabin, and wedding guides',read('src/components/SiteHeader.tsx').includes('Wineries')&&read('src/components/SiteHeader.tsx').includes('Waterfall cabins')&&read('src/components/SiteHeader.tsx').includes('Wedding packages')],
+ ['Winery guide includes all three original wineries',read('src/app/things-to-do/wineries/page.tsx').includes('Mount Bethel Winery')&&read('src/app/things-to-do/wineries/page.tsx').includes('Post Winery')&&read('src/app/things-to-do/wineries/page.tsx').includes('Chateau Aux Arc')],
+ ['Dining guide restores all six original suggestions',read('src/app/things-to-do/restaurants/page.tsx').includes('Oark General Store')&&read('src/app/things-to-do/restaurants/page.tsx').includes('Kaspers')&&read('src/app/things-to-do/restaurants/page.tsx').includes('Wrecked Canoe')],
+ ['The Waterfall and Glamping hubs keep their arrival cautions',read('src/app/cabins/waterfall-cabins/page.tsx').includes('bathroom accessed separately from outside')&&read('src/app/cabins/glamping-cabins/page.tsx').includes('road down to the glamping cabins is steep')],
+ ['Gallery showcases multiple automatically rotating real-photo sets',read('src/app/gallery/page.tsx').includes('featured.ceremony')&&read('src/app/gallery/page.tsx').includes('featured.weddingMoments')],
  ['First-party venue photo files exist',existsSync(join(root,'public/photos/experience/img-1435.webp'))],
 ];
 let failed=0;

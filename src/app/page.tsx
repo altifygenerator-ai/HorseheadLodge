@@ -21,17 +21,19 @@ export default function Home() {
     <section className="home-hero">
       <div className="hero-photo-wrap"><ExperienceCarousel hero label="Horsehead Lake Lodge property and ceremony spaces" className="hero-slideshow" ids={featured.hero} /></div>
       <div className="hero-text">
-        <p className="hero-overline">Clarksville, Arkansas</p>
+        <p className="hero-overline">Horsehead Lake · Clarksville, Arkansas</p>
         <h1>Horsehead Lake Lodge<br /><span>&amp; Event Center</span></h1>
-        <p className="hero-copy">A place to gather, celebrate and stay overlooking Horsehead Lake in the Arkansas Ozarks.</p>
-        <div className="hero-actions"><a href={SITE.tour} target="_blank" rel="noopener noreferrer" className="button button-cream">Book a tour</a><Link className="button button-outline hero-secondary" href="/weddings">Explore the venue</Link></div>
+        <p className="hero-copy">Weddings on the water, a warm timber hall, and cabins that let everyone stay a little longer.</p>
+        <div className="hero-actions"><a href={SITE.tour} target="_blank" rel="noopener noreferrer" className="button button-cream">Schedule a tour <span aria-hidden="true">↗</span></a><Link className="button button-outline hero-secondary" href="/weddings">Explore weddings</Link></div>
       </div>
+      <div className="hero-location-note"><span className="hero-location-rule"/>Weddings · Celebrations · Lakeside stays</div>
     </section>
 
     <nav className="home-quick-nav" aria-label="Plan your visit">
       <Link href="/weddings"><strong>Weddings</strong><span>See the ceremony and reception spaces</span></Link>
       <Link href="/cabins"><strong>Cabins</strong><span>Find a place to stay by the lake</span></Link>
       <Link href="/the-enclave"><strong>The Enclave</strong><span>Explore smaller gatherings</span></Link>
+      <Link href="/things-to-do"><strong>Explore the area</strong><span>Wineries, trails and good places to eat</span></Link>
     </nav>
 
     <section className="narrow-intro section-spacing">
@@ -63,12 +65,14 @@ export default function Home() {
       <div className="section-heading-row"><div><p className="section-label">Stay at Horsehead</p><h2>Stay a little longer.</h2><p>From the Main Lodge to the waterfall and glamping cabins, there are several ways to enjoy the lake.</p></div><TextLink href="/cabins">View accommodations</TextLink></div>
       <div className="home-stay-grid">
         <Link className="home-stay-large" href="/cabins/main-lodge"><SitePhoto photo="lodge" /><div className="home-stay-caption"><h3>The Main Lodge</h3><span>See the lodge →</span></div></Link>
-        <div className="home-stay-side"><Link href="/cabins/waterfall-cabin-1"><SitePhoto photo="waterfall" /><div><h3>Waterfall Cabins</h3><span>View cabins →</span></div></Link><Link href="/cabins/glamping-cabin-1"><SitePhoto photo="glamping" /><div><h3>Glamping Cabins</h3><span>View cabins →</span></div></Link></div>
+        <div className="home-stay-side"><Link href="/cabins/waterfall-cabins"><SitePhoto photo="waterfall" /><div><h3>Waterfall Cabins</h3><span>View cabins →</span></div></Link><Link href="/cabins/glamping-cabins"><SitePhoto photo="glamping" /><div><h3>Glamping Cabins</h3><span>View cabins →</span></div></Link></div>
       </div></div></section>
 
     <section className="enclave-feature"><div className="content-width enclave-inner"><PhotoCarousel className="enclave-photo" label="Photographs of The Enclave" slides={[{photo:"enclave",caption:"The Enclave"},{photo:"enclaveRoom",caption:"Inside The Enclave"},{photo:"enclaveView",caption:"Enclave views"},{photo:"enclaveSetting",caption:"Event setting"},{photo:"enclaveDetails",caption:"Venue details"}]} /><div><p className="section-label light-label">The Enclave</p><h2>A place for smaller celebrations.</h2><p>The Enclave is the lodge's separate event setting for gatherings of up to 50 guests. Explore the space, available options and current details.</p><TextLink href="/the-enclave">Explore The Enclave</TextLink></div></div></section>
 
     <section className="home-film section-spacing"><div className="content-width home-film-grid"><div className="home-film-copy"><p className="section-label">A look at a real wedding</p><h2>More than a photograph.</h2><p>Watch an actual wedding filmed at Horsehead Lake Lodge, then explore the other spaces and accommodations around the lake.</p><TextLink href="/video-gallery">More video and venue views</TextLink></div><VideoFeature videoId="dcqyySknUgg" title="A wedding at Horsehead Lake Lodge" credit="Film by Wild Bloom Films" /></div></section>
+
+    <section className="home-nearby section-spacing"><div className="content-width home-nearby-inner"><div className="home-nearby-copy"><p className="section-label">Make a weekend of it</p><h2>There is more here than the ceremony.</h2><p>Enjoy the lake in the morning, then head out to the Ozarks, the restaurants around Clarksville, or the wineries of Altus.</p><div className="home-nearby-links"><Link href="/things-to-do/wineries">Wineries in the River Valley <span aria-hidden="true">↗</span></Link><Link href="/things-to-do/restaurants">Restaurants &amp; dining <span aria-hidden="true">↗</span></Link><Link href="/things-to-do/trails">Hiking &amp; waterfalls <span aria-hidden="true">↗</span></Link></div></div><ExperienceCarousel ids={featured.setting} className="home-nearby-carousel" label="Horsehead Lake and the surrounding Ozarks" /></div></section>
 
     <section className="review-section section-spacing"><div className="content-width"><p className="section-label">What guests are saying</p><ReviewCarousel /></div></section>
     <VisitCTA />

@@ -41,3 +41,23 @@ Status as of November 18, 2026: **staging-only; do not switch DNS.**
 
 ## Critical: current-domain links
 Do not add links on the new site to `https://horseheadlakelodge.com/video-gallery/` or `https://horseheadlakelodge.com/guest-information/` as supposed WordPress backups: after DNS cutover those URLs point back to the new app. Migrate the original video gallery and working RSVP workflow before launch.
+
+
+## November 23, 2026 — visitor experience expansion (staging)
+
+Completed in this code revision:
+- Refined the photographic hero, tour actions, responsive navigation and grouped desktop/mobile menus.
+- Kept automatic, pausable property photo carousels and added independently rotating ceremony and wedding-moments gallery collections.
+- Built dedicated Waterfall Cabins and Glamping Cabins category guides, retained all six individual Airbnb listing destinations, and expanded each cabin detail page with property context and practical arrival notes.
+- Restored the original winery guide’s Mount Bethel, Post Winery and Chateau Aux Arc entries with visitor links; also included the nearby Wiederkehr wine-cellar destination already referenced in the original dining guide.
+- Restored all six original dining-guide places, expanded the hiking guide with the original named trails/waterfalls, and connected local guides from the homepage, menus and footer.
+- Explained the original Event Center Apartment/guest quarters as event-related accommodation rather than inventing a seventh standalone bookable Airbnb cabin.
+- Extended route and UI safeguards for the new category pages and guidance.
+
+Outstanding blockers (unchanged, do not switch DNS):
+- Migrate original WordPress blog posts and maintain each indexed article permalink.
+- Preserve original event pages, RSVP data entry, form delivery and confirmation; no fake replacements.
+- Recover the real ceremony-hall 360 panorama/embed and verify the original gallery’s precise video IDs; independent filmmaker embeds are not proof of original-video parity.
+- Sync all remaining original WordPress photos, including Enclave and specific cabins, to durable first-party storage. The 81-image experience gallery is already first-party; some older SitePhoto assets are still sourced from WordPress.
+- Approve photographer/photo usage, current package prices, any venue guest-quarter arrangements, and final mobile/browser review with Scott.
+- Verify the attached Vercel project and deployment, crawl it with an interactive browser at 375/768/1280, and confirm all book-tour/Airbnb/calendar/outbound links before a launch decision.

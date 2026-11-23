@@ -1,0 +1,15 @@
+import type {Metadata} from 'next';
+import Link from 'next/link';
+import {STAYS} from '@/lib/content';
+import {SitePhoto} from '@/components/SitePhoto';
+import {ExperienceCarousel} from '@/components/ExperienceCarousel';
+import {featured} from '@/lib/experience';
+import {StayCard} from '@/components/Shared';
+export const metadata:Metadata={title:'Waterfall Cabins at Horsehead Lake | Three Creekside Stays',description:'Compare Waterfall Cabins One, Two and Three near the Horsehead Creek spillway, including bed configurations, private hot tubs, bathroom notes and Airbnb booking links.',alternates:{canonical:'/cabins/waterfall-cabins'}};
+const stays=STAYS.filter(s=>s.category==='Waterfall cabins');
+export default function WaterfallCabins(){return <>
+ <section className="stay-hub-hero"><div className="content-width stay-hub-grid"><div><Link className="back-link" href="/cabins">← All accommodations</Link><p className="section-label">Three creekside cabins</p><h1>Waterfall Cabins at Horsehead.</h1><p>Each of these cabins sits near the Horsehead Creek spillway. They share the same setting but have different beds, layouts and details worth checking before you choose.</p><a className="button button-dark" href="#compare">Compare the cabins</a></div><SitePhoto photo="waterfall" className="stay-hub-photo" loading="eager"/></div></section>
+ <section className="content-width section-spacing stay-hub-details"><div><p className="section-label">The setting</p><h2>A cabin, a porch and the sound of the creek.</h2><p>Waterfall flow varies with rainfall. All three cabins have a private hot tub, but each has its own layout. Check the separate descriptions and Airbnb photos rather than assuming the accommodations are identical.</p></div><div className="stay-hub-facts"><h3>What to know</h3><p><strong>Cabin One</strong> sleeps two and has a bathroom accessed separately from outside.</p><p><strong>Cabin Two</strong> has two full beds, a separate living area and a kitchen.</p><p><strong>Cabin Three</strong> has two queen beds and a hot tub facing the spillway.</p></div></section>
+ <section className="stay-category-section section-spacing" id="compare"><div className="content-width"><div className="stay-category-intro"><div><p className="section-label">Choose your stay</p><h2>The three Waterfall Cabins.</h2></div><p>Each listing has its own current nightly rate, house rules and availability on Airbnb.</p></div><div className="stay-page-grid">{stays.map(s=><StayCard key={s.slug} stay={s}/>)}</div></div></section>
+ <section className="content-width section-spacing guide-editorial"><ExperienceCarousel ids={featured.setting} label="Lake and woods at Horsehead Lake Lodge" className="guide-editorial-carousel"/><div className="guide-editorial-copy"><p className="section-label">Beyond the spillway</p><h2>Leave some time for the lake.</h2><p>The dock, water and forest are part of the Horsehead setting. Browse the property photographs, then plan an outing to one of the original visitor-guide destinations.</p><Link className="text-link" href="/things-to-do/trails">Hiking &amp; waterfalls</Link></div></section>
+ </>}
