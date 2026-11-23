@@ -38,7 +38,7 @@ function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':
 (async()=>{
  const home=require('../src/app/page.tsx');
  const layout=require('../src/app/layout.tsx');
- const staticRoutes=['weddings','wedding-packages','the-enclave','cabins','corporate-retreats','things-to-do','gallery','video-gallery','guest-information','contact','blog'];
+ const staticRoutes=['weddings','wedding-packages','the-enclave','cabins','corporate-retreats','things-to-do','gallery','video-gallery','guest-information','contact','blog','amenities','things-to-do/restaurants','things-to-do/wineries','things-to-do/trails'];
  const routes=[['/',home.default]];
  for(const slug of staticRoutes)routes.push([`/${slug}`,require(`../src/app/${slug}/page.tsx`).default]);
  const dynamic=require('../src/app/cabins/[slug]/page.tsx');
