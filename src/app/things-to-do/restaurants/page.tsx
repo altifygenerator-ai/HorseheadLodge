@@ -1,0 +1,6 @@
+import type {Metadata} from 'next';
+import Link from 'next/link';
+import {PageIntro} from '@/components/Shared';
+export const metadata:Metadata={title:'Restaurants Around Horsehead Lake Lodge',description:'Dining suggestions from the original Horsehead Lake Lodge visitor guide, including local and Ozark-area restaurants.',alternates:{canonical:'/things-to-do/restaurants'}};
+const places=[{name:'Oark General Store & Café',detail:'A historic destination for travelers exploring the Ozark backroads.'},{name:'Crosswoods Restaurant & Sports Club',detail:'A Clarksville dining and gathering option listed in the original lodge guide.'},{name:'Alligator Ray’s',detail:'An option for Cajun-inspired food listed in the original lodge guide.'}];
+export default function Restaurants(){return <><PageIntro label="Area dining" title="Where to eat near Horsehead." lead="A few of the restaurants featured in the original lodge visitor guide. Confirm hours, menus and driving times before you go."/><section className="content-width section-spacing excursion-directory">{places.map(p=><article key={p.name}><h2>{p.name}</h2><p>{p.detail}</p></article>)}<div className="directory-note"><p>These are carried forward from the existing site, not current opening-hours recommendations.</p><Link className="text-link" href="/things-to-do">Explore other excursions</Link></div></section></>}
