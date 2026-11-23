@@ -61,3 +61,15 @@ Outstanding blockers (unchanged, do not switch DNS):
 - Sync all remaining original WordPress photos, including Enclave and specific cabins, to durable first-party storage. The 81-image experience gallery is already first-party; some older SitePhoto assets are still sourced from WordPress.
 - Approve photographer/photo usage, current package prices, any venue guest-quarter arrangements, and final mobile/browser review with Scott.
 - Verify the attached Vercel project and deployment, crawl it with an interactive browser at 375/768/1280, and confirm all book-tour/Airbnb/calendar/outbound links before a launch decision.
+
+
+## November 23, 2026 — varied page layouts and editorial flow (staging)
+
+- Reworked Weddings into an immersive venue-photo hero, large ceremony/reception chapters, real-wedding auto-rotating gallery, and stay/weekend storytelling.
+- Reworked The Enclave with its own intimate layout and original Enclave photo carousel rather than the standard sitewide page-intro template.
+- Reworked Corporate Retreats around an actionable meet/reconnect/stay flow and clear published rate comparison.
+- Reworked Amenities as a property-photo mosaic and recreation list.
+- Differentiated Wineries (wine-country travel note and destination cards), Restaurants (location-grouped directory) and Hiking (outdoor field guide).
+- Simplified Guest Information into practical arrival/RSVP guidance and Contact into a clear visit/contact layout.
+- Retained original photos, source labels, six Airbnb bookings, tour/calendar links, staging noindex and current launch gates.
+- Automated layout/content assertions added; still requires real browser visual review before replacing the original WordPress site.
