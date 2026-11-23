@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit",
+    "syntax": "node scripts/verify-syntax.mjs",
     "audit": "node scripts/audit.mjs",
     "media:sync": "node scripts/media-sync.mjs",
     "smoke": "node scripts/smoke.cjs",
