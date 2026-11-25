@@ -88,8 +88,8 @@ export const STAYS: Stay[] = [
 ];
 
 export const PACKAGES = [
-  { title: 'Full weekend', duration: 'Friday at noon through Sunday at 10 am', price: '$9,900', description: 'A full weekend with venue access and published on-site accommodations included in the package.', features: ['Ceremony hall, reception hall and lake-facing deck', 'Bridal suite and rooftop sky deck', 'On-site accommodations listed in package details', 'Access to lake and outdoor recreation areas'] },
-  { title: 'Weekday', duration: 'Monday at noon through Thursday at 10 am', price: '$6,900', description: 'A longer weekday option with the venue, event spaces and lodging access described in the current package.', features: ['Ceremony hall and reception/banquet hall', 'Lake-facing deck and rooftop sky deck', 'Bridal suite and on-site accommodations', 'Courtyard and lake access'] },
+  { title: 'Full weekend', duration: 'Friday at noon through Sunday at 10 am', price: '$9,900', description: 'A published full-weekend wedding option with venue access, on-site guest quarters and lake recreation. Confirm current inclusions with the venue.', features: ['Cantilevered lake-facing ceremony deck and indoor ceremony hall', 'Reception/banquet hall, bridal suite and rooftop sky deck', 'Three-bedroom guest quarters and Main Lodge, with published lodging capacity of 26 across the event arrangements', 'Courtyard, dock, kayaks and canoes', 'Fire pits with firewood and lighted pickleball/basketball courts'] },
+  { title: 'Weekday', duration: 'Monday at noon through Thursday at 10 am', price: '$6,900', description: 'A longer published weekday wedding option with spaces and accommodation described on the original site. Confirm inclusions and the current rate.', features: ['Lake-facing deck and indoor ceremony hall', 'Reception/banquet hall with commercial kitchen', 'Bridal suite, rooftop sky deck and three-bedroom guest quarters', 'Main Lodge and published event lodging arrangements', 'Courtyard, boat dock, kayaks, canoes, fire pits and courts'] },
 ] as const;
 
 /** These are images from Scott's existing public website, not stock photography.

@@ -1068,3 +1068,56 @@ html{scroll-padding-top:110px}
  .contact-details-list>div{grid-template-columns:1fr;gap:8px}
 }
 @media(prefers-reduced-motion:reduce){.weddings-cover-media .experience-slide,.enclave-look-carousel .photo-carousel-slide{transition:none!important}}
+
+/* Event planning: practical steps with clear links to the existing systems. */
+.event-plan-intro{background:#f4f1ec}
+.event-plan-intro-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(35px,6vw,90px);align-items:center;min-height:630px;padding-block:70px}
+.event-plan-intro h1{font-size:clamp(44px,5.2vw,77px);letter-spacing:-.05em;line-height:1.09;max-width:680px}
+.event-plan-intro-inner>div:first-child>p:not(.section-label){font-size:17px;line-height:1.8;color:#655e56;max-width:580px}
+.event-plan-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:27px}
+.event-plan-photos{height:520px}
+.event-plan-steps{padding-block:95px;display:grid;grid-template-columns:.37fr .63fr;gap:clamp(40px,6vw,105px)}
+.event-plan-steps-title h2{font-size:clamp(36px,4vw,60px);line-height:1.15}
+.event-plan-steps-list{border-top:1px solid #d7d0c8}
+.event-plan-steps-list article{padding:27px 0 34px;border-bottom:1px solid #d7d0c8}
+.event-plan-steps-list h3{font-size:clamp(24px,2.5vw,37px);line-height:1.2;margin:8px 0 14px}
+.event-plan-steps-list p{font-size:15px;line-height:1.8;color:#635b53;max-width:730px}
+.event-plan-kicker{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#866b53}
+.event-plan-questions{background:#292622;color:#f6f1ea;padding:97px 0}
+.event-plan-questions-inner{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(45px,7vw,120px)}
+.event-plan-questions .section-label{color:#dac5ae}
+.event-plan-questions h2{font-size:clamp(38px,4.15vw,65px);line-height:1.11}
+.event-plan-questions-inner>div:first-child>p:not(.section-label){font-size:16px;line-height:1.82;color:#d8cdc0}
+.event-plan-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 37px}
+.event-plan-facts article{border-top:1px solid #70675d;padding-top:19px}
+.event-plan-facts h3{font-size:clamp(21px,2vw,29px);color:#fff;line-height:1.28;margin-bottom:11px}
+.event-plan-facts p{font-size:14px;line-height:1.8;color:#dfd5c8}
+.event-plan-next{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(35px,6vw,90px);align-items:center;padding-block:90px}
+.event-plan-next h2{font-size:clamp(36px,3.9vw,58px);line-height:1.13}
+.event-plan-next p:not(.section-label){font-size:16px;line-height:1.8;color:#615952}
+.event-plan-next p a{color:#524337;text-underline-offset:3px}
+.event-plan-next-links{display:flex;align-items:flex-start;flex-direction:column;gap:24px}
+.event-plan-related-links{display:flex;flex-wrap:wrap;align-items:center;gap:15px 30px;margin-top:8px}
+.event-date-contact{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;border-top:1px solid #ded8cf;padding-block:75px}
+.event-date-contact h2{font-size:clamp(32px,3.2vw,49px);margin-bottom:16px}
+.event-date-contact p:not(.section-label){font-size:15px;line-height:1.8;color:#625b54}
+.event-date-contact>div:last-child{display:flex;align-items:flex-start;flex-direction:column;gap:17px}
+@media(max-width:850px){
+ .event-plan-intro-inner,.event-plan-steps,.event-plan-questions-inner,.event-plan-next,.event-date-contact{grid-template-columns:1fr;gap:30px}
+ .event-plan-intro-inner{min-height:0;padding-block:57px}
+ .event-plan-photos{height:420px}
+ .event-plan-steps{padding-block:70px}
+ .event-plan-questions{padding-block:75px}
+}
+@media(max-width:600px){
+ .event-plan-intro h1{font-size:clamp(40px,10vw,58px)}
+ .event-plan-intro-inner{padding-block:50px}
+ .event-plan-intro-inner>div:first-child>p:not(.section-label){font-size:15px}
+ .event-plan-photos{height:320px}
+ .event-plan-actions .button{font-size:11px;padding:13px 15px}
+ .event-plan-steps{padding-block:59px}
+ .event-plan-questions{padding-block:67px}
+ .event-plan-facts{grid-template-columns:1fr;gap:12px}
+ .event-plan-next{padding-block:66px}
+ .event-date-contact{padding-block:55px}
+}

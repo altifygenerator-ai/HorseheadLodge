@@ -8,6 +8,7 @@ type MenuItem={name:string;href:string;note?:string};
 const weddingLinks:MenuItem[]=[
  {name:'Wedding venue',href:'/weddings',note:'Ceremony and reception spaces'},
  {name:'Wedding packages',href:'/wedding-packages',note:'Weekend and smaller celebrations'},
+ {name:'Plan an event',href:'/plan-your-event',note:'Dates, inquiries and tours'},
  {name:'Corporate retreats',href:'/corporate-retreats',note:'Meetings beside the lake'},
 ];
 const stayLinks:MenuItem[]=[

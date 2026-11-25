@@ -1,15 +1,223 @@
 {
   "version": 1,
-  "lastPublicReview": "2026-11-22",
+  "lastPublicReview": "2026-11-25",
   "ownerApproval": "pending",
   "facts": [
-    {"id":"venue.name","value":"Horsehead Lake Lodge & Event Center","source":"https://horseheadlakelodge.com/","status":"public-source-verified","approvedForEmail":false},
-    {"id":"venue.location","value":"213 County Road 3190, Clarksville, AR 72830","source":"https://horseheadlakelodge.com/contact-us/","status":"public-source-verified","approvedForEmail":false},
-    {"id":"venue.contact","value":"scott@horseheadlakelodge.com","source":"https://horseheadlakelodge.com/contact-us/","status":"public-source-verified","approvedForEmail":false},
-    {"id":"venue.tour","value":"https://app.venuexai.com/book-appointment/HF37r4yoWYHWbzUZbCHB?extended=false","source":"https://horseheadlakelodge.com/","status":"public-source-verified","approvedForEmail":false},
-    {"id":"venue.event-calendar","value":"https://availabledates.horseheadlakelodge.com/","source":"https://horseheadlakelodge.com/","status":"public-source-verified","approvedForEmail":false},
-    {"id":"venue.weekend-starting","value":"$9,900","source":"https://horseheadlakelodge.com/wedding/","status":"needs-owner-reconfirmation","approvedForEmail":false},
-    {"id":"venue.weekday-starting","value":"$6,900","source":"https://horseheadlakelodge.com/wedding/","status":"needs-owner-reconfirmation","approvedForEmail":false},
-    {"id":"venue.enclave-capacity","value":"Up to 50 guests","source":"https://horseheadlakelodge.com/the-enclave/","status":"needs-owner-reconfirmation","approvedForEmail":false}
+    {
+      "id": "venue.name",
+      "value": "Horsehead Lake Lodge & Event Center",
+      "source": "https://horseheadlakelodge.com/",
+      "status": "public-source-verified",
+      "approvedForEmail": false
+    },
+    {
+      "id": "venue.location",
+      "value": "213 County Road 3190, Clarksville, AR 72830",
+      "source": "https://horseheadlakelodge.com/contact-us/",
+      "status": "public-source-verified",
+      "approvedForEmail": false
+    },
+    {
+      "id": "venue.contact",
+      "value": "scott@horseheadlakelodge.com",
+      "source": "https://horseheadlakelodge.com/contact-us/",
+      "status": "public-source-verified",
+      "approvedForEmail": false
+    },
+    {
+      "id": "venue.tour",
+      "value": "https://app.venuexai.com/book-appointment/HF37r4yoWYHWbzUZbCHB?extended=false",
+      "source": "https://horseheadlakelodge.com/",
+      "status": "public-source-verified",
+      "approvedForEmail": false
+    },
+    {
+      "id": "venue.event-calendar",
+      "value": "https://availabledates.horseheadlakelodge.com/",
+      "source": "https://horseheadlakelodge.com/",
+      "status": "public-source-verified",
+      "approvedForEmail": false
+    },
+    {
+      "id": "venue.weekend-starting",
+      "value": "$9,900",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "needs-owner-reconfirmation",
+      "approvedForEmail": false
+    },
+    {
+      "id": "venue.weekday-starting",
+      "value": "$6,900",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "needs-owner-reconfirmation",
+      "approvedForEmail": false
+    },
+    {
+      "id": "venue.enclave-capacity",
+      "value": "Up to 50 guests",
+      "source": "https://horseheadlakelodge.com/the-enclave/",
+      "status": "needs-owner-reconfirmation",
+      "approvedForEmail": false
+    },
+    {
+      "id": "venue.event-inquiry-email",
+      "value": "info@horseheadlakelodge.com",
+      "source": "https://availabledates.horseheadlakelodge.com/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published for requesting an event-date hold; inbox deliverability and routing not verified."
+    },
+    {
+      "id": "venue.phone",
+      "value": "+1-479-214-0218",
+      "source": "https://horseheadlakelodge.com/contact-us/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Public contact number; verify preferred SMS/call behavior."
+    },
+    {
+      "id": "venue.acreage",
+      "value": "72 acres",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published property acreage; owner reconfirmation before use in automated sales."
+    },
+    {
+      "id": "venue.full-weekend-window",
+      "value": "Friday noon through Sunday 10:00 a.m.",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published full-weekend rental timing, not a guaranteed booking window."
+    },
+    {
+      "id": "venue.weekday-window",
+      "value": "Monday noon through Thursday 10:00 a.m.",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published weekday timing, not live inventory."
+    },
+    {
+      "id": "venue.weekend-payment-schedule",
+      "value": "25% deposit; additional 25% within 90 days; remaining balance due 60 days before event",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Verify interpretation with Scott: original page wording 'within 90 days' is potentially ambiguous."
+    },
+    {
+      "id": "venue.other-package-payment-schedule",
+      "value": "50% down; balance due 60 days before event",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published for other packages; confirm actual applicability."
+    },
+    {
+      "id": "venue.friday-sunday-starting",
+      "value": "$2,900",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published shorter-event starting price; owner confirmation needed."
+    },
+    {
+      "id": "venue.short-weekday-starting",
+      "value": "$1,900",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published shorter-event starting price; owner confirmation needed."
+    },
+    {
+      "id": "venue.saturday-starting",
+      "value": "$6,900",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published shorter-event starting price; owner confirmation needed."
+    },
+    {
+      "id": "venue.cabin-add-on",
+      "value": "$400 per waterfall or glamping cabin for weekend, as published",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Public page describes this as an additional fee; don't promise current pricing or availability."
+    },
+    {
+      "id": "venue.enclave-rental-starting",
+      "value": "$800",
+      "source": "https://horseheadlakelodge.com/the-enclave/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published starting rental; confirm current charges."
+    },
+    {
+      "id": "venue.enclave-ceremony-starting",
+      "value": "$1,900",
+      "source": "https://horseheadlakelodge.com/the-enclave/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Published main-event-space option, not necessarily the same as another wedding package with the same amount."
+    },
+    {
+      "id": "venue.enclave-ceremony-contents",
+      "value": "Ceremony space and bridal suite only",
+      "source": "https://horseheadlakelodge.com/the-enclave/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Public site description; owner to confirm."
+    },
+    {
+      "id": "venue.ceremony-hall-capacity",
+      "value": "Up to 200 guests",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Depends on layout, permits and final owner confirmation."
+    },
+    {
+      "id": "venue.package-published-lodging",
+      "value": "Accommodation for 26 people",
+      "source": "https://horseheadlakelodge.com/wedding/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Wedding page states this; must reconcile with individual Airbnb capacities and event guest quarter."
+    },
+    {
+      "id": "venue.separately-booked-stays",
+      "value": "Six public individual Airbnb booking links: Main Lodge, three waterfall cabins, two glamping cabins",
+      "source": "https://horseheadlakelodge.com/booking/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Verified exact room IDs stored in src/lib/content.ts. Airbnb controls nightly bookings."
+    },
+    {
+      "id": "venue.booking-authority",
+      "value": "Tour scheduling via VenueX; published event-date windows via separate subdomain; cabin bookings via Airbnb",
+      "source": "https://availabledates.horseheadlakelodge.com/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "These are distinct channels; no verified shared inventory or synced availability feed."
+    },
+    {
+      "id": "venue.feedback-form",
+      "value": "https://nbttoo7psqw.typeform.com/to/nJHfuwxy",
+      "source": "https://horseheadlakelodge.com/contact-us/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Original contact page links to Typeform for visitor feedback; destination could not be loaded or submission-tested."
+    },
+    {
+      "id": "venue.contact-form-provider",
+      "value": "WordPress Contact Form 7 and WP Mail SMTP listed in public REST namespaces",
+      "source": "https://horseheadlakelodge.com/wp-json/",
+      "status": "public-source-verified-needs-owner-review",
+      "approvedForEmail": false,
+      "note": "Plugin presence only; does not prove the form submission, mailbox, delivery, or AI integrations."
+    }
   ]
 }

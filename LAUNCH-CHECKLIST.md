@@ -73,3 +73,14 @@ Outstanding blockers (unchanged, do not switch DNS):
 - Simplified Guest Information into practical arrival/RSVP guidance and Contact into a clear visit/contact layout.
 - Retained original photos, source labels, six Airbnb bookings, tour/calendar links, staging noindex and current launch gates.
 - Automated layout/content assertions added; still requires real browser visual review before replacing the original WordPress site.
+
+## November 25, 2026 — public booking and automation source migration
+- Added the public event-dates address as a separate date-inquiry channel in site config, labeled as published but not deliverability-tested.
+- Added a dedicated /plan-your-event guide connecting the EXISTING VenueX tour scheduler, the independent published event-date calendar, package information, and correct email inquiry path. It does NOT claim to confirm availability, hold dates, charge deposits, or send email itself.
+- Added event-booking links to the nav, footer, contact and wedding-package page.
+- Added source-attributed publicly documented package/deposit/rental facts to knowledge/venue-facts.json, all deliberately NOT owner-approved or authorized for AI auto-replies.
+- The old site's WordPress REST namespace inventory publicly identifies Contact Form 7 and WP Mail SMTP, plus The Events Calendar, but does not reveal Scott's private delivery routing or VenueX automation configuration. Do not connect to its form submission API or infer an AI mailbox webhook from plugin presence.
+- Found original live privacy policy and terms pages (both last updated 2023-11-20); original terms include the unfilled phrase [Your Jurisdiction]. Do not copy legally stale/unfinished text into a production policy; require owner/legal revision.
+- Original /events/ contains old dated availability-like event entries, some in early 2026. Do not import these as fresh calendar openings: use the linked date-availability service until authoritative integration is approved.
+- A public Typeform feedback link exists but couldn't be submission-tested. Keep the URL documented, not embedded as a production form.
+- Still blocked: verified end-to-end form email delivery, mailbox/agent access, owner-approved facts, current calendar integration, event RSVP backend and source media migration.
