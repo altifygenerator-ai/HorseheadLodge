@@ -12,6 +12,8 @@ export const SITE = {
   phoneDisplay: '(479) 214-0218',
   phone: '+14792140218',
   email: 'scott@horseheadlakelodge.com',
+  /** Public date-hold inquiry address; delivery and routing still need owner confirmation. */
+  eventInquiryEmail: 'info@horseheadlakelodge.com',
   tour: 'https://app.venuexai.com/book-appointment/HF37r4yoWYHWbzUZbCHB?extended=false',
   dates: 'https://availabledates.horseheadlakelodge.com/',
 } as const;
@@ -117,6 +119,6 @@ export const INTERNAL_PATHS = [
   ...STAYS.map(s => `/cabins/${s.slug}`), '/corporate-retreats',
   '/things-to-do', '/gallery', '/video-gallery', '/contact',
   '/cabins/waterfall-cabins','/cabins/glamping-cabins',
-  '/guest-information', '/blog','/amenities',
+  '/guest-information', '/blog','/amenities','/plan-your-event',
   '/things-to-do/restaurants','/things-to-do/wineries','/things-to-do/trails',
 ] as const;
