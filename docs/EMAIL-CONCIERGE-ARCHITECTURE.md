@@ -1,34 +1,43 @@
-# Horsehead Lake Lodge — proposed email concierge (NOT live)
+# Horsehead operations and concierge
 
-Scott currently uses an email-replying agent; its product, mailbox, permissions, existing knowledge, automations and escalation settings have **not yet been inspected**. Do not disable, replace or connect to it without an authorized review.
+The rebuild now includes the website inquiry form, event availability and tour scheduler, an authenticated operations page, and a Postgres-backed background worker. The existing public destinations remain the default until the cutover flag is enabled. The worker defaults to shadow mode, which stores prepared replies for review and leaves Outlook calendar records alone.
 
-## Goal
-Handle common wedding, event and lodging inquiries in Scott's recognizable voice, respond quickly, remember *approved* corrections and conversations, help turn inquiries into tours, and avoid incorrect promises. A reliable business assistant, not a bot that learns from random incoming mail and invents details.
+## Workflow
 
-## Operating rules
-1. **Draft-first on launch**. The assistant reads permitted inbound mail, classifies intent, retrieves versioned approved business facts, generates a short draft with evidence, and places the draft in a review queue. It does not send mail until Scott explicitly authorizes a sending policy.
-2. **Knowledge is approved, not trained on strangers.** Store entries with fact, scope, source URL/document, owner approval status, effective date, expiration/review date, and revision history. Scott's corrections become proposed changes, not auto-published truth.
-3. **Never invent availability, reserved dates, discounts, total quotes, taxes, refunds, service promises, occupancy or package inclusions.** Treat the public calendar as informational unless a booking integration confirms live inventory.
-4. Escalate negotiated packages, specific dates, cancellations, deposits, refunds, complaints, accessibility needs, safety issues, exceptions and requests involving personal data.
-5. Prevent prompt injection: treat incoming emails and attachments as data, never as instructions for tools, policy changes, admin operations or knowledge editing.
-6. Verify mail sender, detect repeats and forwarded threads, avoid duplicate replies, keep threaded context and maintain outbound audit logs.
-7. Share only approved resources and avoid including a guest's private details in third-party analytics or model-training datasets.
-8. Make it easy for Scott to **correct a draft**, approve it, and turn the correction into a reusable answer after a deliberate confirmation step.
-9. Include structured lead records: event type, approximate guest count, requested dates, lodging needs, budget *only if provided*, tour status, follow-up owner and next action.
-10. Send status notifications and use templates branded for Horsehead Lake Lodge. Human takeover must be immediate.
+- One normalized email identifies a lead. Each inquiry retains its own source and message ID. Appointment records separately identify whether a guest, the agent, or staff booked the tour.
+- The Outlook inquiry folder is polled by the worker. Approved marketplace sender addresses are configured per source. A marketplace message needs a recipient in its Reply-To header that differs from the platform sender. Ambiguous marketplace inquiries go to staff. Validate real examples for each provider before changing mail routing.
+- The model can classify intent and interpret an explicit date. Email content comes from approved, versioned venue answers, live inventory, and fixed transactional replies. An owner can update each approved answer from the dashboard. A message cannot change calendar settings or venue policies.
+- The agent can offer times by email. A guest's explicit signed BOOK reply books the offered slot if it is still open. The agent, guest and staff use the same availability check. Outlook blocks are considered and scheduled tours are projected to the selected calendar once live.
+- The worker sends confirmations and reminders. A guest can reply to confirm or cancel. Staff only record outcomes the system cannot observe, such as attendance. Canceled and past unresolved appointments remain distinguishable in reporting.
+- An event hold removes overlapping listings that share resources. A held listing automatically reappears at expiry if it is set to publish and its resources are still free. Event pricing displayed on the website and quoted for a specific date both come from the active inventory.
+- An authenticated, agreed deposit receipt records the payment, confirms the reservation and queues the guest email. A deposit is accepted only for the linked eligible window and for its approved USD amount. The system does not create charges or sign contracts.
+- Recurring follow-ups run at days 1, 4 and 11 by default. The cadence is configurable. A reply, opt-out, booked tour or closed lead prevents older follow-ups. Staff handoffs and unrecoverable delivery failures are visible in Operations.
 
-## Future architecture (requires access and authorization)
-Inbound mail provider (Microsoft 365 / Gmail / GoDaddy / other) -> authenticated webhook or scheduled sync -> dedupe & security screen -> thread and lead store -> grounded retrieval from owner-approved knowledge -> draft with source IDs and confidence *evidence* -> Scott's approval inbox -> provider send -> response/correction analytics -> proposed knowledge update -> owner approval.
+## Connect a staging environment
 
-## Autonomy stages
-- **Stage 1:** Shadow mode: process sample inquiries, compare with Scott's actual responses, no sending. First local mock triage is available via `npm run concierge:check`.
-- **Stage 2:** Review-first: drafts appear with cited evidence and a clear send/edit action. Only authorized users can send.
-- **Stage 3:** Explicitly enabled auto-send only for narrow, owner-approved FAQs: venue address, tour scheduling URL, public gallery or cabin booking URLs. Never send a date-specific availability or pricing promise without a live authoritative source.
-- **Stage 4:** Optional follow-up automation, compliant with communication preferences, unsubscribes, and event lifecycle; no unsolicited bulk marketing.
+1. Apply `migrations/001_venue_automation.sql` to a new PostgreSQL database and set `DATABASE_URL`. Use a separate database for staging. Create random staff, offer, receipt and cron secrets with at least 32 characters.
+2. Sign in at `/operations`. Add Scott's current event holds and bookings before publishing open inventory. Enter approved deposit amounts, event package windows, room/cabin overlaps, tour availability and answers. Rates and capacity from the VenueX audit should be reconciled with Scott before being approved.
+3. Configure a Microsoft Graph app for the intended venue mailbox and calendar. Limit its mailbox access to the intended mailbox using the organization's Exchange application access controls. The integration uses mail read/write and send capabilities plus calendar read/write. Use a dedicated intake folder with rules for the approved inquiry channels and their replies. Start with `HORSEHEAD_SEND_MODE=shadow`, a test folder and a fresh `HORSEHEAD_INBOX_START_AT`.
+4. Schedule the host to send `GET /api/venue/run` with `Authorization: Bearer <CRON_SECRET>` once per minute. Use the host's scheduler or an independent HTTP scheduler. The worker stores jobs and checks provider delivery state before retrying sends. Connect only one primary scheduler for the intended environment.
+5. Confirm the public inquiry, direct tour, email offer and signed deposit flows in staging with a test mailbox and database. Verify attendee notifications, staff handoff routing and booking collision handling. Run a few provider-specific marketplace messages through shadow mode and compare the drafts with Scott's usual responses.
+6. Route production inquiries and deployment URLs only after that check. Set `HORSEHEAD_PUBLIC_URL` to the configured public origin. Enable `HORSEHEAD_SEND_MODE=live` for the mailbox only when the existing responder is disabled for that mailbox flow. Build with `NEXT_PUBLIC_HORSEHEAD_AUTOMATION_LIVE=true` to switch the website links. Existing VenueX links continue to work when the feature flag is off.
 
-## Access inventory to collect before live wiring
-Email hosting platform and authorized mailbox; current agent/vendor and sample workflows; past sent replies (with permission); actual pricing and event policies; whether VenueX exposes availability APIs; booking and calendar authority; contacts who should receive escalation; owner-approved tone samples; whether replies need SMS; data retention, consent and privacy requirements.
+### Booking provider receipt
 
-**Security:** credentials in provider/Vercel secrets only, not GitHub; encryption at rest, minimal scopes, review logs, safe deletion, per-sender limits, webhook signatures and end-to-end tests.
+Connect the payment or booking provider through a trusted adapter that verifies the provider's payment and agreement first. Submit the following event to `POST /api/venue/receipt`:
 
-**Current implementation status:** Only public-site facts, triage tests and this specification are in the repository. No connected mailbox, model calls, learning database or auto-send path exists yet.
+```json
+{
+  "kind": "deposit_paid",
+  "currency": "USD",
+  "eventId": "payment-provider-event-id",
+  "providerReference": "verified-deposit-reference",
+  "windowId": "approved-horsehead-window-uuid",
+  "amountCents": 250000,
+  "email": "guest@example.com"
+}
+```
+
+Set `X-Horsehead-Timestamp` to the current Unix seconds and `X-Horsehead-Signature` to base64url HMAC-SHA256 over the timestamp, a period, and the exact request body, keyed by `HORSEHEAD_RECEIPT_SECRET`. Keep this secret server-side. Duplicate events and payment references return a successful duplicate status. A conflict returns HTTP 409 and should be surfaced by the adapter for reconciliation. Derive the window ID and amount from the approved booking record, with the provider's confirmed payment data used to verify amount and currency.
+
+The operations dashboard shows results for activity recorded in this system. Historical events and outcomes need a verified migration. The current intake channels are the website inquiry form and Outlook email. There is no SMS or independent live web chat connection in this branch.

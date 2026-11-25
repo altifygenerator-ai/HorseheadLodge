@@ -84,3 +84,12 @@ Outstanding blockers (unchanged, do not switch DNS):
 - Original /events/ contains old dated availability-like event entries, some in early 2026. Do not import these as fresh calendar openings: use the linked date-availability service until authoritative integration is approved.
 - A public Typeform feedback link exists but couldn't be submission-tested. Keep the URL documented, not embedded as a production form.
 - Still blocked: verified end-to-end form email delivery, mailbox/agent access, owner-approved facts, current calendar integration, event RSVP backend and source media migration.
+
+## November 25, 2026 — venue automation staging
+
+- [ ] Load Scott's approved open dates, current holds and confirmed weddings, including shared resources.
+- [ ] Connect the verified Outlook intake folder, tour calendar, delivery permissions and host scheduler.
+- [ ] Verify marketplace Reply-To routing and the payment provider adapter using test records.
+- [ ] Run shadow inquiries and a complete test tour and deposit before enabling live delivery or switching public links.
+
+See [Horsehead operations and concierge](docs/EMAIL-CONCIERGE-ARCHITECTURE.md).
