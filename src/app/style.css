@@ -1121,3 +1121,32 @@ html{scroll-padding-top:110px}
  .event-plan-next{padding-block:66px}
  .event-date-contact{padding-block:55px}
 }
+
+.venue-tool { padding-block: clamp(3rem, 8vw, 6rem); }
+.venue-tool h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin: 0 0 1rem; }
+.venue-tool h2 { margin: 0 0 1rem; }
+.venue-tool section { padding-block: 2rem; border-top: 1px solid #ddd7ce; }
+.venue-tool nav { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-block: 1.5rem; }
+.venue-tool summary { cursor: pointer; font-weight: 650; padding-block: .65rem; }
+.venue-tool details { border-bottom: 1px solid #e3ded5; padding-block: .3rem; }
+.venue-form { display: grid; align-items: start; gap: 1rem; max-width: 45rem; margin: 1rem 0; }
+.venue-form label { display: grid; gap: .35rem; font-weight: 600; }
+.venue-form [hidden] { display: none; }
+.venue-form input:not([type=checkbox]), .venue-form select, .venue-form textarea, .venue-inline select {
+  width: 100%; padding: .75rem; border: 1px solid #847c70; border-radius: .2rem;
+  background: #fff; color: #24211d; font: inherit; min-height: 2.75rem;
+}
+.venue-form button { justify-self: start; }
+.venue-form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: .85rem; }
+.venue-inline { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; margin-block: .4rem; }
+.venue-inline select { width: auto; max-width: 100%; }
+.venue-inline button, .venue-windows button { padding: .6rem .8rem; }
+.venue-checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: .7rem; border: 1px solid #847c70; padding: .8rem; }
+.venue-checks label { display: flex; align-items: center; gap: .45rem; }
+.venue-windows { padding: 0; list-style: none; margin-block: 1.2rem; }
+.venue-windows li { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1.25rem; padding: .8rem 0; border-bottom: 1px solid #e3ded5; }
+.venue-message { overflow-wrap: anywhere; white-space: pre-wrap; }
+.venue-table { max-width: 100%; overflow-x: auto; }
+.venue-table table { width: 100%; text-align: left; border-collapse: collapse; }
+.venue-table th, .venue-table td { padding: .65rem .7rem .65rem 0; vertical-align: top; border-bottom: 1px solid #e3ded5; }
+.venue-tool [role=alert] { border-left: 3px solid #962c23; padding-left: .7rem; }

@@ -4,6 +4,8 @@
  * Confirm pricing and house rules with Scott immediately before production launch.
  * Never substitute fabricated claims for missing information.
  */
+const automatedBooking = process.env.NEXT_PUBLIC_HORSEHEAD_AUTOMATION_LIVE === 'true';
+
 export const SITE = {
   name: 'Horsehead Lake Lodge & Event Center',
   shortName: 'Horsehead Lake Lodge',
@@ -14,8 +16,9 @@ export const SITE = {
   email: 'scott@horseheadlakelodge.com',
   /** Public date-hold inquiry address; delivery and routing still need owner confirmation. */
   eventInquiryEmail: 'info@horseheadlakelodge.com',
-  tour: 'https://app.venuexai.com/book-appointment/HF37r4yoWYHWbzUZbCHB?extended=false',
-  dates: 'https://availabledates.horseheadlakelodge.com/',
+  eventInquiry: automatedBooking ? '/event-inquiry' : null,
+  tour: automatedBooking ? '/tour-booking' : 'https://app.venuexai.com/book-appointment/HF37r4yoWYHWbzUZbCHB?extended=false',
+  dates: automatedBooking ? '/event-availability' : 'https://availabledates.horseheadlakelodge.com/',
 } as const;
 
 export type Stay = {
